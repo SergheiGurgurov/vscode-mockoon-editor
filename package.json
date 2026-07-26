@@ -2,8 +2,10 @@
   "name": "vscode-mockoon-editor",
   "displayName": "Mockoon Editor",
   "description": "Edit Mockoon environment files inside VS Code.",
-  "version": "0.0.1",
-  "publisher": "local-dev",
+  "version": "0.0.3",
+  "publisher": "serghei-gurgurov",
+  "icon": "assets/icon.png",
+  "repository": "https://github.com/SergheiGurgurov/vscode-mockoon-editor.git",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -61,7 +63,8 @@
   "scripts": {
     "compile": "node esbuild.js",
     "watch": "node esbuild.js --watch",
-    "vscode:prepublish": "npm run compile"
+    "vscode:prepublish": "npm run compile",
+    "package": "vsce package"
   },
   "keywords": [
     "mockoon",

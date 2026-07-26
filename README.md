@@ -1,19 +1,10 @@
 # Mockoon Editor
 
-A small VS Code extension for editing Mockoon environment JSON files without opening the standalone Mockoon app.
+Edit [Mockoon](https://mockoon.com/) environment JSON files directly inside VS Code, without opening the standalone Mockoon app.
 
-## Run locally
+## Features
 
-```bash
-npm install
-npm run compile
-```
-
-Then press `F5` in VS Code and open `docs/mockoon.json` in the Extension Development Host.
-
-## Use
-
-Open a JSON file and choose **Open in Mockoon Editor** from the editor title bar or Explorer context menu. The custom editor supports:
+Open a `mockoon.json`, `mock.json`, `*.mockoon.json`, or `*.mock.json` file with **Open in Mockoon Editor** from the editor title bar or the Explorer context menu. The custom editor supports:
 
 - Global `port` and `latency` edits
 - Route browsing
@@ -23,4 +14,9 @@ Open a JSON file and choose **Open in Mockoon Editor** from the editor title bar
 
 Route creation/deletion, OpenAPI import/export, and starting mock servers are intentionally out of scope.
 
-The extension host keeps file parsing and JSON edits in plain TypeScript. The Webview UI is built with React and VS Code theme variables.
+## Usage
+
+1. Open a folder containing a Mockoon environment file.
+2. Right-click the file in the Explorer, or use the icon in the editor title bar, and choose **Open in Mockoon Editor**.
+3. Edit routes, responses, headers, and body content using the visual editor.
+4. Changes are saved back to the underlying JSON file.
