@@ -1,12 +1,76 @@
 {
   "name": "vscode-mockoon-editor",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "displayName": "Mockoon Editor",
+  "description": "Edit Mockoon environment files inside VS Code.",
+  "version": "0.0.1",
+  "publisher": "local-dev",
+  "engines": {
+    "vscode": "^1.96.0"
   },
-  "keywords": [],
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "mockoonEditor.open",
+        "title": "Open in Mockoon Editor",
+        "category": "Mockoon",
+        "icon": "$(edit)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "mockoonEditor.open",
+          "when": "resourceLangId == json && resourceFilename =~ /\\.mockoon-env\\.json$/",
+          "group": "navigation"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "mockoonEditor.open",
+          "when": "resourceFilename =~ /\\.mockoon-env\\.json$/",
+          "group": "navigation"
+        }
+      ]
+    },
+    "customEditors": [
+      {
+        "viewType": "mockoonEditor.environmentEditor",
+        "displayName": "Mockoon Editor",
+        "selector": [
+          {
+            "filenamePattern": "*.mockoon-env.json"
+          }
+        ],
+        "priority": "option"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "vscode:prepublish": "npm run compile"
+  },
+  "keywords": [
+    "mockoon",
+    "vscode",
+    "extension"
+  ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "@types/vscode": "^1.96.0",
+    "esbuild": "^0.24.2",
+    "typescript": "^5.7.2"
+  }
 }
