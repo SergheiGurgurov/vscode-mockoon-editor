@@ -1,539 +1,487 @@
 {
-  "openapi": "3.1.1",
-  "info": {
-    "title": "API TransfRER",
-    "version": "1.0.2"
-  },
-  "servers": [
+  "uuid": "8844b29a-4810-4ce3-92fb-b6d13f5de47c",
+  "lastMigration": 33,
+  "name": "API TransfRER",
+  "endpointPrefix": "api/v1",
+  "latency": 500,
+  "port": 8080,
+  "hostname": "",
+  "folders": [],
+  "routes": [
     {
-      "url": "/api/v1",
-      "description": "Server locale di sviluppo"
-    }
-  ],
-  "paths": {
-    "/auth/spid/login": {
-      "get": {
-        "tags": ["auth"],
-        "summary": "Naviga verso auth provider",
-        "operationId": "login",
-        "description": "Effettua redirect verso auth provider (Federa)",
-        "responses": {
-          "302": {
-            "description": "redirect",
-            "headers": {
-              "Location": {
-                "schema": {
-                  "type": "string"
-                },
-                "example": "http://localhost:4200/dashboard"
-              }
-            },
-            "content": {}
-          }
-        }
-      }
-    },
-    "/auth/spid/logout": {
-      "get": {
-        "tags": ["auth"],
-        "summary": "Esegue logout utente",
-        "operationId": "logout",
-        "description": "Elimina il cookie di autenticazione",
-        "responses": {
-          "200": {
-            "description": "success",
-            "headers": {
-              "Set-Cookie": {
-                "description": "cookie contenente token autenticato",
-                "schema": {
-                  "type": "string"
-                },
-                "example": "auth=; Path=/; Secure; HttpOnly; SameSite=Strict"
-              }
-            },
-            "content": {}
-          }
-        }
-      }
-    },
-    "/auth/spid/acs": {
-      "get": {
-        "tags": ["auth"],
-        "summary": "Login Spid",
-        "parameters": [
-          {
-            "name": "codiceFiscale",
-            "in": "header",
-            "required": true,
-            "description": "codice discale utente",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "description": "Riceve gli header di autenticazione SPID di Federa e effettua un redirect verso la webapp valorizzando il cookie di autenticazione",
-        "responses": {
-          "302": {
-            "description": "redirect wa",
-            "headers": {
-              "Location": {
-                "description": "Url a cui reindirizzare utente",
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "example": "http://localhost:4200/dashboard"
-              },
-              "Set-Cookie": {
-                "description": "cookie contenente token autenticato",
-                "schema": {
-                  "type": "string"
-                },
-                "example": "auth=abcde12345; Path=/; Secure; HttpOnly; SameSite=Strict"
-              }
-            },
-            "content": {}
-          }
-        }
-      }
-    },
-    "/auth/me": {
-      "get": {
-        "operationId": "me",
-        "tags": ["auth"],
-        "summary": "Ottiene info utente autenticato",
-        "responses": {
-          "200": {
-            "description": "Ritorna un oggetto con i dati dell'utente loggato",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MeResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/config": {
-      "get": {
-        "summary": "Lista Ambiti con relativi form serializzati",
-        "operationId": "getConfig",
-        "description": "Restituisce la lista degli ambiti con le relative serializzazioni",
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/ConfigResponse" }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/requests/summary": {
-      "get": {
-        "summary": "Riassunto numerico richest",
-        "operationId": "getRequestSummary",
-        "description": "Riassunto numerico richest",
-        "responses": {
-          "200": {
-            "description": "Summary numerico",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SummaryRichiesteResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/BadRequest"
-          },
-          "500": {
-            "$ref": "#/components/responses/InternalServerError"
-          }
-        }
-      }
-    },
-    "/requests": {
-      "get": {
-        "summary": "Elenco Richieste Utente",
-        "operationId": "getRichieste",
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "required": true,
-            "description": "Numero di pagina da interrogare",
-            "schema": {
-              "type": "integer"
-            },
-            "example": 1
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "required": true,
-            "description": "Elementi per pagina",
-            "schema": {
-              "type": "integer"
-            },
-            "example": 10
-          },
-          {
-            "name": "query",
-            "in": "query",
-            "description": "ricerca testuale per oggetto o id",
-            "schema": { "type": "string" }
-          },
-          {
-            "name": "statoRichiesta",
-            "in": "query",
-            "description": "ricerca per enum stato di elaborazione",
-            "schema": { "$ref": "#/components/schemas/StatoRichiesta" }
-          },
-          {
-            "name": "ambitoId",
-            "in": "query",
-            "description": "ricerca per tipologica ambito",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "description": "Restituisce l'elenco delle richieste dell'utente autenticato.",
-        "responses": {
-          "200": {
-            "description": "Lista delle richieste",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ElencoRichiesteResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/BadRequest"
-          },
-          "500": {
-            "$ref": "#/components/responses/InternalServerError"
-          }
-        }
-      },
-      "post": {
-        "summary": "Inserimento nuova richiesta",
-        "operationId": "createRequest",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/InserimentoRichiesta"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "integer",
-                  "example": 1
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "MeResponse": {
-        "type": "object",
-        "properties": {
-          "nome": { "type": "string" },
-          "cognome": { "type": "string" }
-        },
-        "example": { "nome": "Mario", "cognome": "Rossi" }
-      },
-      "Error": {
-        "type": "object",
-        "required": ["status", "message"],
-        "properties": {
-          "message": {
-            "type": "string",
-            "example": "Richiesta non valida"
-          },
-          "details": {
-            "type": "string",
-            "example": "Il parametro \"pageSize\" deve essere maggiore di 0"
-          }
-        },
-        "example": {
-          "status": 400,
-          "message": "Richiesta non valida",
-          "details": "Il parametro \"pageSize\" deve essere maggiore di 0"
-        }
-      },
-      "Page": {
-        "type": "object",
-        "required": ["size", "number", "totalElements", "totalPages"],
-        "properties": {
-          "size": {
-            "type": "integer",
-            "description": "Numero di elementi per pagina"
-          },
-          "number": {
-            "type": "integer",
-            "description": "Numero della pagina (zero-based)"
-          },
-          "totalElements": {
-            "type": "integer",
-            "description": "Numero totale di elementi nella lista"
-          },
-          "totalPages": {
-            "type": "integer",
-            "description": "Numero totale di pagine della lista"
-          }
-        },
-        "example": {
-          "size": 1,
-          "number": 0,
-          "totalElements": 9,
-          "totalPages": 9
-        }
-      },
-      "StatoRichiesta": {
-        "oneOf": [
-          {
-            "const": 1,
-            "title": "Tutti gli stati"
-          },
-          {
-            "const": 2,
-            "title": "Protocollata"
-          },
-          {
-            "const": 3,
-            "title": "In elaborazione"
-          },
-          {
-            "const": 4,
-            "title": "Pronta"
-          },
-          {
-            "const": 5,
-            "title": "Errore tecnico"
-          }
-        ],
-        "example": 1
-      },
-      "SummaryRichiesteResponse": {
-        "type": "object",
-        "properties": {
-          "totale": { "type": "integer" },
-          "protocollate": { "type": "integer" },
-          "inElaborazione": { "type": "integer" },
-          "conErrori": { "type": "integer" }
-        },
-        "example": { "totale": 42, "protocollate": 10, "inElaborazione": 30, "conErrori": 2 }
-      },
-      "ElencoRichiesteResponse": {
-        "type": "object",
-        "required": ["content", "page"],
-        "properties": {
-          "content": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "idRichiesta",
-                "oggetto",
-                "ambito",
-                "allegati",
-                "data",
-                "statoRichiesta"
-              ],
-              "properties": {
-                "idRichiesta": { "type": "string", "example": "REQ-2026-0001" },
-                "oggetto": { "type": "string", "example": "Richiesta rilascio dati anagrafici" },
-                "ambito": { "type": "string", "example": "Anagrafe" },
-                "allegati": { "type": "integer", "example": 2 },
-                "data": { "type": "string", "format": "date", "example": "2026-06-15" },
-                "statoRichiesta": { "$ref": "#/components/schemas/StatoRichiesta" }
-              }
-            }
-          },
-          "page": { "$ref": "#/components/schemas/Page" }
-        },
-        "example": {
-          "content": [
+      "uuid": "b3c919ab-c4e0-4830-8922-c50097ed934b",
+      "type": "http",
+      "documentation": "Naviga verso auth provider",
+      "method": "get",
+      "endpoint": "auth/spid/login",
+      "responses": [
+        {
+          "uuid": "46a6cd08-acd6-4e0f-adf4-ab037604f79b",
+          "body": "",
+          "latency": 0,
+          "statusCode": 302,
+          "label": "redirect",
+          "headers": [
             {
-              "idRichiesta": "REQ-2026-0001",
-              "oggetto": "Richiesta rilascio dati anagrafici",
-              "ambito": "Anagrafe",
-              "allegati": 2,
-              "data": "2026-06-15",
-              "statoRichiesta": 2
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Location",
+              "value": "http://localhost:4200/dashboard"
             }
           ],
-          "page": { "size": 10, "number": 0, "totalElements": 42, "totalPages": 5 }
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
         }
-      },
-      "ConfigResponse": {
-        "type": "object",
-        "required": ["ambiti"],
-        "properties": {
-          "ambiti": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": ["id", "description", "sottoAssegnazioniMultiple", "sottoAssegnazioni"],
-              "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "sottoAssegnazioniMultiple": {
-                  "type": "boolean"
-                },
-                "sottoAssegnazioni": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SottoAssegnazione"
-                  }
-                },
-                "formConfig": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "example": {
-          "ambiti": [
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "8cd30be1-dde8-4a91-9e87-8bb919775cf2",
+      "type": "http",
+      "documentation": "Esegue logout utente",
+      "method": "get",
+      "endpoint": "auth/spid/logout",
+      "responses": [
+        {
+          "uuid": "e35e8451-2d7a-43ef-b314-ab36cc023f72",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "success",
+          "headers": [
             {
-              "id": 1,
-              "description": "435 - Anagrafe",
-              "sottoAssegnazioniMultiple": true,
-              "sottoAssegnazioni": [
-                {
-                  "descrizioneUo": "Manutenzione",
-                  "uo": "Q0001015",
-                  "codiceAssegnazione": "67.14.9",
-                  "selected": false,
-                  "readonly": false
-                }
-              ],
-              "formConfig": "[{\"displayName\":\"Nome\",\"name\":\"nome\",\"type\":\"text\"},{\"displayName\":\"Email\",\"name\":\"email\",\"type\":\"email\"}]"
+              "key": "Content-Type",
+              "value": "application/json"
             },
             {
-              "id": 2,
-              "description": "436 - Tributi",
-              "sottoAssegnazioniMultiple": false,
-              "sottoAssegnazioni": [
-                {
-                  "descrizioneUo": "Lavori Pubblici",
-                  "uo": "Q0001705",
-                  "codiceAssegnazione": "67.14.24",
-                  "selected": false,
-                  "readonly": false
-                }
-              ],
-              "formConfig": "[{\"displayName\":\"Tipo documento\",\"name\":\"tipoDocumento\",\"type\":\"select\"},{\"displayName\":\"Numero\",\"name\":\"numero\",\"type\":\"text\"}]"
+              "key": "Set-Cookie",
+              "value": "auth=; Path=/; Secure; HttpOnly; SameSite=Strict"
             }
-          ]
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
         }
-      },
-      "SottoAssegnazione": {
-        "type": "object",
-        "properties": {
-          "descrizioneUo": {
-            "type": "string"
-          },
-          "uo": {
-            "type": "string"
-          },
-          "codiceAssegnazione": {
-            "type": "string"
-          },
-          "selected": {
-            "type": "boolean"
-          },
-          "readonly": {
-            "type": "boolean"
-          }
-        },
-        "example": {
-          "descrizioneUo": "Manutenzione",
-          "uo": "Q0001015",
-          "codiceAssegnazione": "67.14.9",
-          "selected": false,
-          "readonly": false
-        }
-      },
-      "InserimentoRichiesta": {
-        "type": "object",
-        "required": ["oggetto", "ambito"],
-        "properties": {
-          "oggetto": {
-            "type": "string",
-            "example": "Osservatorio lavori pubblici Q1 2026 - relazione tecnica"
-          },
-          "ambito": {
-            "type": "integer",
-            "example": 1
-          },
-          "fascicolo": {
-            "type": "string",
-            "example": "2026/LP/0087"
-          },
-          "note": {
-            "type": "string",
-            "example": "Documentazione Q1 2026 - vedere allegati per dettagli interventi effettuati."
-          },
-          "sottoAssegnazioni": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SottoAssegnazione"
-            }
-          },
-          "formData": {
-            "type": "object",
-            "additionalProperties": true
-          }
-        }
-      }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     },
-    "responses": {
-      "BadRequest": {
-        "description": "Richiesta non valida (400)",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Error"
+    {
+      "uuid": "4955b72f-308b-40de-acde-ca999654c3b7",
+      "type": "http",
+      "documentation": "Login Spid",
+      "method": "get",
+      "endpoint": "auth/spid/acs",
+      "responses": [
+        {
+          "uuid": "c9394475-c5a6-406b-8caa-f30d6127e0cc",
+          "body": "",
+          "latency": 0,
+          "statusCode": 302,
+          "label": "redirect wa",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Location",
+              "value": "http://localhost:4200/dashboard"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "auth=abcde12345; Path=/; Secure; HttpOnly; SameSite=Strict"
             }
-          }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
         }
-      },
-      "InternalServerError": {
-        "description": "Errore interno del server (500)",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Error"
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "643d4ef4-8c73-4a92-9321-e6767e058c8c",
+      "type": "http",
+      "documentation": "Ottiene info utente autenticato",
+      "method": "get",
+      "endpoint": "auth/me",
+      "responses": [
+        {
+          "uuid": "82118761-a79b-41e1-a5fe-1eac74e0916c",
+          "body": "{\n  \"nome\": \"Mario\",\n  \"cognome\": \"Rossi\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Ritorna un oggetto con i dati dell'utente loggato",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
             }
-          }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
         }
-      }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "3db32ada-b7af-4e6a-b54f-0eb6f8fc1b6b",
+      "type": "http",
+      "documentation": "Lista Ambiti con relativi form serializzati",
+      "method": "get",
+      "endpoint": "config",
+      "responses": [
+        {
+          "uuid": "3d6f3a1d-4427-46df-8c57-af2645a92da6",
+          "body": "{\n  \"ambiti\": [\n    {\n      \"id\": 1,\n      \"description\": \"435 - Anagrafe\",\n      \"sottoAssegnazioniMultiple\": true,\n      \"sottoAssegnazioni\": [\n        {\n          \"descrizioneUo\": \"Manutenzione\",\n          \"uo\": \"Q0001015\",\n          \"codiceAssegnazione\": \"67.14.9\",\n          \"selected\": false,\n          \"readonly\": false\n        }\n      ],\n      \"formConfig\": \"[{\\\"displayName\\\":\\\"Nome\\\",\\\"name\\\":\\\"nome\\\",\\\"type\\\":\\\"text\\\"},{\\\"displayName\\\":\\\"Email\\\",\\\"name\\\":\\\"email\\\",\\\"type\\\":\\\"email\\\"}]\"\n    },\n    {\n      \"id\": 2,\n      \"description\": \"436 - Tributi\",\n      \"sottoAssegnazioniMultiple\": false,\n      \"sottoAssegnazioni\": [\n        {\n          \"descrizioneUo\": \"Lavori Pubblici\",\n          \"uo\": \"Q0001705\",\n          \"codiceAssegnazione\": \"67.14.24\",\n          \"selected\": false,\n          \"readonly\": false\n        }\n      ],\n      \"formConfig\": \"[{\\\"displayName\\\":\\\"Tipo documento\\\",\\\"name\\\":\\\"tipoDocumento\\\",\\\"type\\\":\\\"select\\\"},{\\\"displayName\\\":\\\"Numero\\\",\\\"name\\\":\\\"numero\\\",\\\"type\\\":\\\"text\\\"}]\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "success",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "216c0460-dd8d-408c-8ff7-8492eaed8c24",
+      "type": "http",
+      "documentation": "Riassunto numerico richest",
+      "method": "get",
+      "endpoint": "requests/summary",
+      "responses": [
+        {
+          "uuid": "2ebc1dd3-f419-401d-84ee-7d9c384751e7",
+          "body": "{\n  \"totale\": 42,\n  \"protocollate\": 10,\n  \"inElaborazione\": 30,\n  \"conErrori\": 2\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Summary numerico",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "ba5dc7b2-a288-4de6-8ef0-2703dd735011",
+          "body": "{\n  \"status\": 400,\n  \"message\": \"Richiesta non valida\",\n  \"details\": \"Il parametro \\\"pageSize\\\" deve essere maggiore di 0\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Richiesta non valida (400)",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "01c0c8fa-2c56-4fe4-9ab9-dd9bc8c27c84",
+          "body": "{\n  \"status\": 400,\n  \"message\": \"Richiesta non valida\",\n  \"details\": \"Il parametro \\\"pageSize\\\" deve essere maggiore di 0\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Errore interno del server (500)",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "f1c1613a-6317-4197-9162-0fbb78c75944",
+      "type": "http",
+      "documentation": "Elenco Richieste Utente",
+      "method": "get",
+      "endpoint": "requests",
+      "responses": [
+        {
+          "uuid": "6c6596c9-3a9d-4a17-9424-31ed6347aab7",
+          "body": "{\n  \"content\": [\n    {{#repeat 10}}\n    {\n      \"idRichiesta\": \"REQ-2026-{{faker 'number.int' min=1 max=9999}}\",\n      \"oggetto\": \"{{faker 'lorem.sentence'}}\",\n      \"ambito\": \"Anagrafe\",\n      \"allegati\": {{faker 'number.int' min=1 max=5}},\n      \"data\": \"{{dateFormat (faker 'date.past') 'yyyy-MM-dd'}}\",\n      \"statoRichiesta\": {{oneOf (array '2' '3' '5')}}\n    }\n    {{/repeat}}\n  ],\n  \"page\": {\n    \"size\": 10,\n    \"number\": 0,\n    \"totalElements\": 20,\n    \"totalPages\": 2\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Lista delle richieste",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "e0135852-6595-4476-90db-3cb107f0b17c",
+          "body": "{\n  \"status\": 400,\n  \"message\": \"Richiesta non valida\",\n  \"details\": \"Il parametro \\\"pageSize\\\" deve essere maggiore di 0\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Richiesta non valida (400)",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "0b44351c-8eb5-48b7-a7f6-db0b7e7e6d37",
+          "body": "{\n  \"status\": 400,\n  \"message\": \"Richiesta non valida\",\n  \"details\": \"Il parametro \\\"pageSize\\\" deve essere maggiore di 0\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Errore interno del server (500)",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "effe93f8-33f4-4a5d-bf56-f4c551b8a800",
+      "type": "http",
+      "documentation": "Inserimento nuova richiesta",
+      "method": "post",
+      "endpoint": "requests",
+      "responses": [
+        {
+          "uuid": "c2c02d92-6012-40d8-8e01-721d8b830925",
+          "body": "1",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "created",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     }
-  }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "b3c919ab-c4e0-4830-8922-c50097ed934b"
+    },
+    {
+      "type": "route",
+      "uuid": "8cd30be1-dde8-4a91-9e87-8bb919775cf2"
+    },
+    {
+      "type": "route",
+      "uuid": "4955b72f-308b-40de-acde-ca999654c3b7"
+    },
+    {
+      "type": "route",
+      "uuid": "643d4ef4-8c73-4a92-9321-e6767e058c8c"
+    },
+    {
+      "type": "route",
+      "uuid": "3db32ada-b7af-4e6a-b54f-0eb6f8fc1b6b"
+    },
+    {
+      "type": "route",
+      "uuid": "216c0460-dd8d-408c-8ff7-8492eaed8c24"
+    },
+    {
+      "type": "route",
+      "uuid": "f1c1613a-6317-4197-9162-0fbb78c75944"
+    },
+    {
+      "type": "route",
+      "uuid": "effe93f8-33f4-4a5d-bf56-f4c551b8a800"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
 }

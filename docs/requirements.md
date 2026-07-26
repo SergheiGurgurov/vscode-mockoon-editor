@@ -24,3 +24,10 @@ a vscode extension that can load a mockoon environment json file and allows the 
 - i can see the response bodi in an editor that supports syntax highlighting and formatting, ideally same as vscode.
 - i can add new responses to the route.
 - i can select which response is the default response for the route.
+
+# Technical Requirements
+
+the code should be writtend like a weekend project, not an enterprize product.
+will need high locality of behavior, low levels of abstraction, be declarative instead of imperative, in not only in the function usage (like .forEach over for loops) but also in the design, minimizing manual state management and using reactive programming patterns where possible.
+
+testing is not a requirement.
