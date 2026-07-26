@@ -64,7 +64,8 @@
     "compile": "node esbuild.js",
     "watch": "node esbuild.js --watch",
     "vscode:prepublish": "npm run compile",
-    "package": "vsce package"
+    "clean:package": "node -e \"const fs=require('fs');fs.rmSync('release',{recursive:true,force:true});fs.mkdirSync('release',{recursive:true});\"",
+    "package": "npm run clean:package && vsce package --out release/"
   },
   "keywords": [
     "mockoon",
