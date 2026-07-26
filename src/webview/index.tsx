@@ -3,9 +3,11 @@ import { createRoot } from 'react-dom/client';
 import { App } from './App';
 import type { VsCodeApi } from './types';
 import bootstrapStyles from 'bootstrap/dist/css/bootstrap.min.css';
+import monacoStyles from 'monaco-editor/min/vs/editor/editor.main.css';
 import webviewStyles from './styles.css';
 
 void bootstrapStyles;
+void monacoStyles;
 void webviewStyles;
 
 declare const acquireVsCodeApi: () => VsCodeApi;

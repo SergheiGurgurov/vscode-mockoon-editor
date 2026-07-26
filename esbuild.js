@@ -6,7 +6,10 @@ const shared = {
   bundle: true,
   sourcemap: true,
   logLevel: 'info',
-  minify: false
+  minify: false,
+  loader: {
+    '.ttf': 'file'
+  }
 };
 
 const builds = [
@@ -27,6 +30,20 @@ const builds = [
     define: {
       'process.env.NODE_ENV': '"production"'
     }
+  },
+  {
+    ...shared,
+    platform: 'browser',
+    format: 'iife',
+    entryPoints: ['monaco-editor/esm/vs/editor/editor.worker.js'],
+    outfile: 'out/editor.worker.js'
+  },
+  {
+    ...shared,
+    platform: 'browser',
+    format: 'iife',
+    entryPoints: ['monaco-editor/esm/vs/language/json/json.worker.js'],
+    outfile: 'out/json.worker.js'
   }
 ];
 

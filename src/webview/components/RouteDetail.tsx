@@ -40,15 +40,6 @@ export function RouteDetail({ route, response, selectedResponseId, vscode, onSel
 
   const selectedResponseIndex = route.responses.findIndex((item) => item.uuid === response.uuid);
 
-  const formatBody = () => {
-    try {
-      const formatted = JSON.stringify(JSON.parse(response.body || ''), null, 2);
-      vscode.postMessage({ type: 'updateBody', routeUuid: route.uuid, responseUuid: response.uuid, body: formatted });
-    } catch {
-      onStatus('Body is not plain JSON, so it was left unchanged.');
-    }
-  };
-
   return (
     <>
       <header className="d-flex justify-content-between gap-3 mb-3">
@@ -99,7 +90,7 @@ export function RouteDetail({ route, response, selectedResponseId, vscode, onSel
       </section>
 
       <HeaderEditor route={route} response={response} vscode={vscode} />
-      <BodyEditor route={route} response={response} vscode={vscode} onFormat={formatBody} />
+      <BodyEditor route={route} response={response} vscode={vscode} onStatus={onStatus} />
     </>
   );
 }

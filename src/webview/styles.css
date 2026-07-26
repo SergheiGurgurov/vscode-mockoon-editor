@@ -14,7 +14,8 @@
   --mockoon-section-border: var(--vscode-panel-border);
 }
 
-* {
+body,
+body :not(.monaco-editor, .monaco-editor *) {
   box-sizing: border-box;
 }
 
@@ -129,13 +130,24 @@ body {
 .body-editor {
   min-height: 320px !important;
   height: clamp(320px, 45vh, 680px) !important;
-  resize: vertical;
-  font-family: var(--vscode-editor-font-family);
-  font-size: var(--vscode-editor-font-size);
-  line-height: 1.45;
-  padding: 10px 12px;
-  tab-size: 2;
-  white-space: pre;
+  overflow: hidden;
+  border: 1px solid var(--vscode-input-border, var(--vscode-panel-border));
+  border-radius: 4px;
+}
+
+.body-mode-badge {
+  color: var(--vscode-badge-foreground);
+  background: var(--vscode-badge-background);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 4px 7px;
+}
+
+.monaco-editor,
+.monaco-editor-background,
+.monaco-editor .inputarea.ime-input {
+  background-color: var(--vscode-editor-background) !important;
 }
 
 .default-dot {
