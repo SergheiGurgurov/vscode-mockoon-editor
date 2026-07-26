@@ -11,4 +11,5 @@ export type EditorState =
 
 export type HostMessage =
   | { type: 'state'; environment: MockoonEnvironment }
-  | { type: 'error'; error: string };
+  | { type: 'error'; error: string }
+  | { type: 'status'; text: string };

@@ -135,16 +135,37 @@ export function BodyEditor({ route, response, vscode, onStatus }: BodyEditorProp
     editor.setValue(result.body);
   };
 
+  const handleValidateTemplate = () => {
+    const editor = editorRef.current;
+
+    if (!editor) {
+      return;
+    }
+
+    vscode.postMessage({
+      type: 'validateTemplate',
+      routeUuid: route.uuid,
+      responseUuid: response.uuid,
+      body: editor.getValue(),
+      expectJson: mode === 'json' || mode === 'mockoon-template-json'
+    });
+  };
+
   return (
     <section className="editor-section d-grid gap-2 mt-4">
-      <header className="d-flex align-items-center justify-content-between gap-2">
+      <header className="body-editor-header d-flex align-items-center justify-content-between gap-2">
         <div className="d-flex align-items-center gap-2">
           <h3 className="section-title mb-0">Body</h3>
           <span className="body-mode-badge">{describeMode(mode)}</span>
         </div>
-        <button className="btn btn-secondary btn-sm" disabled={!canFormat(mode)} onClick={handleFormat} title={canFormat(mode) ? 'Format JSON body' : 'Formatting is only available for plain JSON bodies in this slice'}>
-          Format
-        </button>
+        <div className="body-editor-actions d-flex align-items-center gap-2">
+          <button className="btn btn-primary btn-sm" disabled={response.disableTemplating} onClick={handleValidateTemplate} title={response.disableTemplating ? 'Templating is disabled for this response' : 'Render this body with Mockoon template helpers and validate the result'}>
+            Validate template
+          </button>
+          <button className="btn btn-secondary btn-sm" disabled={!canFormat(mode)} onClick={handleFormat} title={canFormat(mode) ? 'Format JSON body' : 'Formatting is only available for plain JSON bodies in this slice'}>
+            Format
+          </button>
+        </div>
       </header>
       <div className="body-editor" ref={containerRef} />
     </section>

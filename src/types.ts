@@ -4,6 +4,14 @@ export interface MockoonHeader {
   [field: string]: unknown;
 }
 
+export interface MockoonDataBucket {
+  uuid: string;
+  id: string;
+  name: string;
+  value: string;
+  [field: string]: unknown;
+}
+
 export interface MockoonResponse {
   uuid: string;
   body: string;
@@ -40,6 +48,7 @@ export interface MockoonEnvironment {
   name?: string;
   latency: number;
   port: number;
+  data?: MockoonDataBucket[];
   routes: MockoonRoute[];
   [field: string]: unknown;
 }

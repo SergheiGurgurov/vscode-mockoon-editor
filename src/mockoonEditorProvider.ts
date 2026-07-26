@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import { createResponse, parseMockoonEnvironment, stringifyEnvironment } from './mockoonFile';
+import { validateTemplateBody } from './mockoonTemplateValidation';
 import { MockoonEnvironment, MockoonRoute } from './types';
 
 type WebviewMessage =
@@ -7,6 +8,7 @@ type WebviewMessage =
   | { type: 'updateEnvironmentField'; field: 'port' | 'latency'; value: number }
   | { type: 'updateResponseField'; routeUuid: string; responseUuid: string; field: 'label' | 'statusCode' | 'latency'; value: string | number }
   | { type: 'updateBody'; routeUuid: string; responseUuid: string; body: string }
+  | { type: 'validateTemplate'; routeUuid: string; responseUuid: string; body: string; expectJson: boolean }
   | { type: 'addHeader'; routeUuid: string; responseUuid: string }
   | { type: 'updateHeader'; routeUuid: string; responseUuid: string; index: number; field: 'key' | 'value'; value: string }
   | { type: 'removeHeader'; routeUuid: string; responseUuid: string; index: number }
@@ -44,6 +46,25 @@ export class MockoonEditorProvider implements vscode.CustomTextEditorProvider {
 
       if (!parsed.ok) {
         webviewPanel.webview.postMessage({ type: 'error', error: parsed.error });
+        return;
+      }
+
+      if (message.type === 'validateTemplate') {
+        const response = findResponse(parsed.environment, message.routeUuid, message.responseUuid);
+
+        if (!response) {
+          webviewPanel.webview.postMessage({ type: 'status', text: 'Template validation failed: response not found.' });
+          return;
+        }
+
+        const result = validateTemplateBody({
+          body: message.body,
+          environment: parsed.environment,
+          expectJson: message.expectJson,
+          response
+        });
+
+        webviewPanel.webview.postMessage({ type: 'status', text: result.message });
         return;
       }
 
@@ -144,6 +165,9 @@ function mutateEnvironment(environment: MockoonEnvironment, message: WebviewMess
       response.body = message.body;
       return true;
     }
+
+    case 'validateTemplate':
+      return false;
 
     case 'addHeader': {
       const response = findResponse(environment, message.routeUuid, message.responseUuid);

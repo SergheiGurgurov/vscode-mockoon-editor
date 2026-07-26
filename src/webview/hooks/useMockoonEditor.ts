@@ -19,6 +19,11 @@ export function useMockoonEditor(vscode: VsCodeApi) {
 
       if (message.type === 'error') {
         setState({ status: 'error', error: message.error });
+        return;
+      }
+
+      if (message.type === 'status') {
+        setStatus(message.text);
       }
     };
 

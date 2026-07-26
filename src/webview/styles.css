@@ -141,6 +141,16 @@ body {
   border-radius: 4px;
 }
 
+.body-editor-header {
+  flex-wrap: wrap;
+}
+
+.body-editor-actions {
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 .body-mode-badge {
   color: var(--vscode-badge-foreground);
   background: var(--vscode-badge-background);
