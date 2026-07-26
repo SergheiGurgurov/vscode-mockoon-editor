@@ -1,0 +1,539 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "API TransfRER",
+    "version": "1.0.2"
+  },
+  "servers": [
+    {
+      "url": "/api/v1",
+      "description": "Server locale di sviluppo"
+    }
+  ],
+  "paths": {
+    "/auth/spid/login": {
+      "get": {
+        "tags": ["auth"],
+        "summary": "Naviga verso auth provider",
+        "operationId": "login",
+        "description": "Effettua redirect verso auth provider (Federa)",
+        "responses": {
+          "302": {
+            "description": "redirect",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "http://localhost:4200/dashboard"
+              }
+            },
+            "content": {}
+          }
+        }
+      }
+    },
+    "/auth/spid/logout": {
+      "get": {
+        "tags": ["auth"],
+        "summary": "Esegue logout utente",
+        "operationId": "logout",
+        "description": "Elimina il cookie di autenticazione",
+        "responses": {
+          "200": {
+            "description": "success",
+            "headers": {
+              "Set-Cookie": {
+                "description": "cookie contenente token autenticato",
+                "schema": {
+                  "type": "string"
+                },
+                "example": "auth=; Path=/; Secure; HttpOnly; SameSite=Strict"
+              }
+            },
+            "content": {}
+          }
+        }
+      }
+    },
+    "/auth/spid/acs": {
+      "get": {
+        "tags": ["auth"],
+        "summary": "Login Spid",
+        "parameters": [
+          {
+            "name": "codiceFiscale",
+            "in": "header",
+            "required": true,
+            "description": "codice discale utente",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "Riceve gli header di autenticazione SPID di Federa e effettua un redirect verso la webapp valorizzando il cookie di autenticazione",
+        "responses": {
+          "302": {
+            "description": "redirect wa",
+            "headers": {
+              "Location": {
+                "description": "Url a cui reindirizzare utente",
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "example": "http://localhost:4200/dashboard"
+              },
+              "Set-Cookie": {
+                "description": "cookie contenente token autenticato",
+                "schema": {
+                  "type": "string"
+                },
+                "example": "auth=abcde12345; Path=/; Secure; HttpOnly; SameSite=Strict"
+              }
+            },
+            "content": {}
+          }
+        }
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "operationId": "me",
+        "tags": ["auth"],
+        "summary": "Ottiene info utente autenticato",
+        "responses": {
+          "200": {
+            "description": "Ritorna un oggetto con i dati dell'utente loggato",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/config": {
+      "get": {
+        "summary": "Lista Ambiti con relativi form serializzati",
+        "operationId": "getConfig",
+        "description": "Restituisce la lista degli ambiti con le relative serializzazioni",
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ConfigResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/requests/summary": {
+      "get": {
+        "summary": "Riassunto numerico richest",
+        "operationId": "getRequestSummary",
+        "description": "Riassunto numerico richest",
+        "responses": {
+          "200": {
+            "description": "Summary numerico",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SummaryRichiesteResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/requests": {
+      "get": {
+        "summary": "Elenco Richieste Utente",
+        "operationId": "getRichieste",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "description": "Numero di pagina da interrogare",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": true,
+            "description": "Elementi per pagina",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 10
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "description": "ricerca testuale per oggetto o id",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "statoRichiesta",
+            "in": "query",
+            "description": "ricerca per enum stato di elaborazione",
+            "schema": { "$ref": "#/components/schemas/StatoRichiesta" }
+          },
+          {
+            "name": "ambitoId",
+            "in": "query",
+            "description": "ricerca per tipologica ambito",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "description": "Restituisce l'elenco delle richieste dell'utente autenticato.",
+        "responses": {
+          "200": {
+            "description": "Lista delle richieste",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ElencoRichiesteResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      },
+      "post": {
+        "summary": "Inserimento nuova richiesta",
+        "operationId": "createRequest",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InserimentoRichiesta"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "example": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MeResponse": {
+        "type": "object",
+        "properties": {
+          "nome": { "type": "string" },
+          "cognome": { "type": "string" }
+        },
+        "example": { "nome": "Mario", "cognome": "Rossi" }
+      },
+      "Error": {
+        "type": "object",
+        "required": ["status", "message"],
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Richiesta non valida"
+          },
+          "details": {
+            "type": "string",
+            "example": "Il parametro \"pageSize\" deve essere maggiore di 0"
+          }
+        },
+        "example": {
+          "status": 400,
+          "message": "Richiesta non valida",
+          "details": "Il parametro \"pageSize\" deve essere maggiore di 0"
+        }
+      },
+      "Page": {
+        "type": "object",
+        "required": ["size", "number", "totalElements", "totalPages"],
+        "properties": {
+          "size": {
+            "type": "integer",
+            "description": "Numero di elementi per pagina"
+          },
+          "number": {
+            "type": "integer",
+            "description": "Numero della pagina (zero-based)"
+          },
+          "totalElements": {
+            "type": "integer",
+            "description": "Numero totale di elementi nella lista"
+          },
+          "totalPages": {
+            "type": "integer",
+            "description": "Numero totale di pagine della lista"
+          }
+        },
+        "example": {
+          "size": 1,
+          "number": 0,
+          "totalElements": 9,
+          "totalPages": 9
+        }
+      },
+      "StatoRichiesta": {
+        "oneOf": [
+          {
+            "const": 1,
+            "title": "Tutti gli stati"
+          },
+          {
+            "const": 2,
+            "title": "Protocollata"
+          },
+          {
+            "const": 3,
+            "title": "In elaborazione"
+          },
+          {
+            "const": 4,
+            "title": "Pronta"
+          },
+          {
+            "const": 5,
+            "title": "Errore tecnico"
+          }
+        ],
+        "example": 1
+      },
+      "SummaryRichiesteResponse": {
+        "type": "object",
+        "properties": {
+          "totale": { "type": "integer" },
+          "protocollate": { "type": "integer" },
+          "inElaborazione": { "type": "integer" },
+          "conErrori": { "type": "integer" }
+        },
+        "example": { "totale": 42, "protocollate": 10, "inElaborazione": 30, "conErrori": 2 }
+      },
+      "ElencoRichiesteResponse": {
+        "type": "object",
+        "required": ["content", "page"],
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "idRichiesta",
+                "oggetto",
+                "ambito",
+                "allegati",
+                "data",
+                "statoRichiesta"
+              ],
+              "properties": {
+                "idRichiesta": { "type": "string", "example": "REQ-2026-0001" },
+                "oggetto": { "type": "string", "example": "Richiesta rilascio dati anagrafici" },
+                "ambito": { "type": "string", "example": "Anagrafe" },
+                "allegati": { "type": "integer", "example": 2 },
+                "data": { "type": "string", "format": "date", "example": "2026-06-15" },
+                "statoRichiesta": { "$ref": "#/components/schemas/StatoRichiesta" }
+              }
+            }
+          },
+          "page": { "$ref": "#/components/schemas/Page" }
+        },
+        "example": {
+          "content": [
+            {
+              "idRichiesta": "REQ-2026-0001",
+              "oggetto": "Richiesta rilascio dati anagrafici",
+              "ambito": "Anagrafe",
+              "allegati": 2,
+              "data": "2026-06-15",
+              "statoRichiesta": 2
+            }
+          ],
+          "page": { "size": 10, "number": 0, "totalElements": 42, "totalPages": 5 }
+        }
+      },
+      "ConfigResponse": {
+        "type": "object",
+        "required": ["ambiti"],
+        "properties": {
+          "ambiti": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "description", "sottoAssegnazioniMultiple", "sottoAssegnazioni"],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "sottoAssegnazioniMultiple": {
+                  "type": "boolean"
+                },
+                "sottoAssegnazioni": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SottoAssegnazione"
+                  }
+                },
+                "formConfig": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "ambiti": [
+            {
+              "id": 1,
+              "description": "435 - Anagrafe",
+              "sottoAssegnazioniMultiple": true,
+              "sottoAssegnazioni": [
+                {
+                  "descrizioneUo": "Manutenzione",
+                  "uo": "Q0001015",
+                  "codiceAssegnazione": "67.14.9",
+                  "selected": false,
+                  "readonly": false
+                }
+              ],
+              "formConfig": "[{\"displayName\":\"Nome\",\"name\":\"nome\",\"type\":\"text\"},{\"displayName\":\"Email\",\"name\":\"email\",\"type\":\"email\"}]"
+            },
+            {
+              "id": 2,
+              "description": "436 - Tributi",
+              "sottoAssegnazioniMultiple": false,
+              "sottoAssegnazioni": [
+                {
+                  "descrizioneUo": "Lavori Pubblici",
+                  "uo": "Q0001705",
+                  "codiceAssegnazione": "67.14.24",
+                  "selected": false,
+                  "readonly": false
+                }
+              ],
+              "formConfig": "[{\"displayName\":\"Tipo documento\",\"name\":\"tipoDocumento\",\"type\":\"select\"},{\"displayName\":\"Numero\",\"name\":\"numero\",\"type\":\"text\"}]"
+            }
+          ]
+        }
+      },
+      "SottoAssegnazione": {
+        "type": "object",
+        "properties": {
+          "descrizioneUo": {
+            "type": "string"
+          },
+          "uo": {
+            "type": "string"
+          },
+          "codiceAssegnazione": {
+            "type": "string"
+          },
+          "selected": {
+            "type": "boolean"
+          },
+          "readonly": {
+            "type": "boolean"
+          }
+        },
+        "example": {
+          "descrizioneUo": "Manutenzione",
+          "uo": "Q0001015",
+          "codiceAssegnazione": "67.14.9",
+          "selected": false,
+          "readonly": false
+        }
+      },
+      "InserimentoRichiesta": {
+        "type": "object",
+        "required": ["oggetto", "ambito"],
+        "properties": {
+          "oggetto": {
+            "type": "string",
+            "example": "Osservatorio lavori pubblici Q1 2026 - relazione tecnica"
+          },
+          "ambito": {
+            "type": "integer",
+            "example": 1
+          },
+          "fascicolo": {
+            "type": "string",
+            "example": "2026/LP/0087"
+          },
+          "note": {
+            "type": "string",
+            "example": "Documentazione Q1 2026 - vedere allegati per dettagli interventi effettuati."
+          },
+          "sottoAssegnazioni": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SottoAssegnazione"
+            }
+          },
+          "formData": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Richiesta non valida (400)",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "InternalServerError": {
+        "description": "Errore interno del server (500)",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      }
+    }
+  }
+}
