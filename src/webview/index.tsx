@@ -1,7 +1,12 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { App, VsCodeApi } from './App';
-import './styles.css';
+import { App } from './App';
+import type { VsCodeApi } from './types';
+import bootstrapStyles from 'bootstrap/dist/css/bootstrap.min.css';
+import webviewStyles from './styles.css';
+
+void bootstrapStyles;
+void webviewStyles;
 
 declare const acquireVsCodeApi: () => VsCodeApi;
 
