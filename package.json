@@ -24,14 +24,14 @@
       "editor/title": [
         {
           "command": "mockoonEditor.open",
-          "when": "resourceLangId == json && resourceFilename =~ /\\.mockoon-env\\.json$/",
+          "when": "resourceLangId == json && resourceFilename =~ /(^|\\.)mock(oon)?\\.json$/",
           "group": "navigation"
         }
       ],
       "explorer/context": [
         {
           "command": "mockoonEditor.open",
-          "when": "resourceFilename =~ /\\.mockoon-env\\.json$/",
+          "when": "resourceFilename =~ /(^|\\.)mock(oon)?\\.json$/",
           "group": "navigation"
         }
       ]
@@ -42,7 +42,16 @@
         "displayName": "Mockoon Editor",
         "selector": [
           {
-            "filenamePattern": "*.mockoon-env.json"
+            "filenamePattern": "mockoon.json"
+          },
+          {
+            "filenamePattern": "*.mockoon.json"
+          },
+          {
+            "filenamePattern": "mock.json"
+          },
+          {
+            "filenamePattern": "*.mock.json"
           }
         ],
         "priority": "option"

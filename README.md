@@ -9,7 +9,7 @@ npm install
 npm run compile
 ```
 
-Then press `F5` in VS Code and open `docs/example.mockoon-env.json` in the Extension Development Host.
+Then press `F5` in VS Code and open `docs/mockoon.json` in the Extension Development Host.
 
 ## Use
 
