@@ -83,7 +83,6 @@ export class MockoonEditorProvider implements vscode.CustomTextEditorProvider {
     const scriptUri = webview.asWebviewUri(vscode.Uri.joinPath(this.context.extensionUri, 'out', 'webview.js'));
     const styleUri = webview.asWebviewUri(vscode.Uri.joinPath(this.context.extensionUri, 'out', 'webview.css'));
     const workerUri = webview.asWebviewUri(vscode.Uri.joinPath(this.context.extensionUri, 'out', 'editor.worker.js'));
-    const jsonWorkerUri = webview.asWebviewUri(vscode.Uri.joinPath(this.context.extensionUri, 'out', 'json.worker.js'));
     const nonce = String(Date.now());
 
     return `<!DOCTYPE html>
@@ -98,7 +97,6 @@ export class MockoonEditorProvider implements vscode.CustomTextEditorProvider {
 <body>
   <div id="app"></div>
   <script nonce="${nonce}">window.mockoonEditorWorkerUri = "${workerUri}";</script>
-  <script nonce="${nonce}">window.mockoonJsonWorkerUri = "${jsonWorkerUri}";</script>
   <script nonce="${nonce}" src="${scriptUri}"></script>
 </body>
 </html>`;

@@ -70,7 +70,8 @@ export function RouteDetail({ route, response, selectedResponseId, vscode, onSel
               title={item.default ? `${item.label || item.statusCode} (default)` : String(item.label || item.statusCode)}
             >
               {item.default ? <span className="default-dot" aria-hidden="true" /> : null}
-              <span className="text-truncate">{item.label || item.statusCode}</span>
+              <span className="response-tab-status">{item.statusCode}</span>
+              <span className="text-truncate">{item.label || 'Untitled response'}</span>
             </button>
           ))}
         </nav>

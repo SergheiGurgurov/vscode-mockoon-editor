@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 interface TextFieldProps {
   label: string;
   value: string;
@@ -13,15 +15,32 @@ interface NumberFieldProps {
 }
 
 export function TextField({ label, value, onCommit }: TextFieldProps) {
+  const [draftValue, setDraftValue] = useState(value);
+
+  useEffect(() => {
+    setDraftValue(value);
+  }, [value]);
+
   return (
     <label className="form-label text-secondary-emphasis m-0">
       {label}
-      <input className="form-control form-control-sm" defaultValue={value} onBlur={(event) => onCommit(event.currentTarget.value)} />
+      <input
+        className="form-control form-control-sm"
+        value={draftValue}
+        onChange={(event) => setDraftValue(event.currentTarget.value)}
+        onBlur={() => onCommit(draftValue)}
+      />
     </label>
   );
 }
 
 export function NumberField({ label, value, min, max, onCommit }: NumberFieldProps) {
+  const [draftValue, setDraftValue] = useState(String(value));
+
+  useEffect(() => {
+    setDraftValue(String(value));
+  }, [value]);
+
   return (
     <label className="form-label text-secondary-emphasis m-0">
       {label}
@@ -30,8 +49,9 @@ export function NumberField({ label, value, min, max, onCommit }: NumberFieldPro
         type="number"
         min={min}
         max={max}
-        defaultValue={value}
-        onBlur={(event) => onCommit(Number(event.currentTarget.value))}
+        value={draftValue}
+        onChange={(event) => setDraftValue(event.currentTarget.value)}
+        onBlur={() => onCommit(Number(draftValue))}
       />
     </label>
   );

@@ -127,6 +127,12 @@ body {
   min-width: 0;
 }
 
+.response-tab-status {
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.82;
+}
+
 .body-editor {
   min-height: 320px !important;
   height: clamp(320px, 45vh, 680px) !important;

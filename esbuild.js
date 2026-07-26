@@ -37,13 +37,6 @@ const builds = [
     format: 'iife',
     entryPoints: ['monaco-editor/esm/vs/editor/editor.worker.js'],
     outfile: 'out/editor.worker.js'
-  },
-  {
-    ...shared,
-    platform: 'browser',
-    format: 'iife',
-    entryPoints: ['monaco-editor/esm/vs/language/json/json.worker.js'],
-    outfile: 'out/json.worker.js'
   }
 ];
 

@@ -3,24 +3,6 @@ import type * as Monaco from 'monaco-editor/esm/vs/editor/editor.api';
 export type BodyMode = 'json' | 'mockoon-template-json' | 'text';
 
 const templateLanguageId = 'mockoon-template-json';
-const knownHelpers = new Set([
-  'array',
-  'body',
-  'bodyRaw',
-  'cookie',
-  'dateFormat',
-  'faker',
-  'header',
-  'hostname',
-  'ip',
-  'now',
-  'oneOf',
-  'queryParam',
-  'repeat',
-  'request',
-  'urlParam'
-]);
-
 let languageRegistered = false;
 
 export function detectBodyMode(body: string): BodyMode {
@@ -37,11 +19,11 @@ export function detectBodyMode(body: string): BodyMode {
 }
 
 export function languageIdForMode(mode: BodyMode): string {
-  if (mode === 'mockoon-template-json') {
+  if (mode === 'json' || mode === 'mockoon-template-json') {
     return templateLanguageId;
   }
 
-  return mode === 'json' ? 'json' : 'plaintext';
+  return 'plaintext';
 }
 
 export function describeMode(mode: BodyMode): string {
@@ -71,10 +53,6 @@ export function formatBody(body: string, mode: BodyMode): { ok: true; body: stri
   } catch (error) {
     return { ok: false, message: `Body is not valid JSON: ${error instanceof Error ? error.message : 'unknown parse error'}.` };
   }
-}
-
-export function validateBodyModel(monaco: typeof Monaco, model: Monaco.editor.ITextModel, mode: BodyMode): void {
-  validateTemplateModel(monaco, model, mode);
 }
 
 export function registerMockoonBodyLanguage(monaco: typeof Monaco): void {
@@ -147,90 +125,6 @@ export function configureMonacoTheme(monaco: typeof Monaco): void {
       'focusBorder': cleanColor(styles.getPropertyValue('--vscode-focusBorder'), border)
     }
   });
-}
-
-export function validateTemplateModel(monaco: typeof Monaco, model: Monaco.editor.ITextModel, mode: BodyMode): Monaco.editor.IMarkerData[] {
-  const owner = 'mockoon-template-validation';
-
-  if (mode !== 'mockoon-template-json') {
-    monaco.editor.setModelMarkers(model, owner, []);
-    return [];
-  }
-
-  const markers = collectTemplateMarkers(monaco, model);
-  monaco.editor.setModelMarkers(model, owner, markers);
-  return markers;
-}
-
-function collectTemplateMarkers(monaco: typeof Monaco, model: Monaco.editor.ITextModel): Monaco.editor.IMarkerData[] {
-  const text = model.getValue();
-  const markers: Monaco.editor.IMarkerData[] = [];
-  const stack: Array<{ helper: string; offset: number }> = [];
-
-  for (let offset = 0; offset < text.length; offset += 1) {
-    if (text.startsWith('{{', offset)) {
-      const endOffset = text.indexOf('}}', offset + 2);
-
-      if (endOffset === -1) {
-        markers.push(marker(monaco, model, offset, text.length, 'Unclosed Mockoon template expression.'));
-        break;
-      }
-
-      const expression = text.slice(offset + 2, endOffset).trim();
-      const helperMatch = expression.match(/^(#|\/)?\s*([\w.-]+)/);
-
-      if (helperMatch) {
-        const prefix = helperMatch[1];
-        const helper = helperMatch[2];
-
-        if (prefix === '#') {
-          stack.push({ helper, offset });
-        } else if (prefix === '/') {
-          const open = stack.pop();
-
-          if (!open) {
-            markers.push(marker(monaco, model, offset, endOffset + 2, `Closing helper "${helper}" has no opener.`));
-          } else if (open.helper !== helper) {
-            markers.push(marker(monaco, model, offset, endOffset + 2, `Closing helper "${helper}" does not match "${open.helper}".`));
-          }
-        } else if (!knownHelpers.has(helper)) {
-          markers.push(marker(monaco, model, offset, endOffset + 2, `Unknown Mockoon helper "${helper}".`, monaco.MarkerSeverity.Warning));
-        }
-      }
-
-      offset = endOffset + 1;
-    } else if (text.startsWith('}}', offset)) {
-      markers.push(marker(monaco, model, offset, offset + 2, 'Closing template delimiter has no opener.'));
-      offset += 1;
-    }
-  }
-
-  stack.forEach((open) => {
-    markers.push(marker(monaco, model, open.offset, open.offset + open.helper.length + 3, `Block helper "${open.helper}" is not closed.`));
-  });
-
-  return markers;
-}
-
-function marker(
-  monaco: typeof Monaco,
-  model: Monaco.editor.ITextModel,
-  startOffset: number,
-  endOffset: number,
-  message: string,
-  severity = monaco.MarkerSeverity.Error
-): Monaco.editor.IMarkerData {
-  const start = model.getPositionAt(startOffset);
-  const end = model.getPositionAt(Math.max(startOffset + 1, endOffset));
-
-  return {
-    severity,
-    message,
-    startLineNumber: start.lineNumber,
-    startColumn: start.column,
-    endLineNumber: end.lineNumber,
-    endColumn: end.column
-  };
 }
 
 function looksLikeJson(body: string): boolean {

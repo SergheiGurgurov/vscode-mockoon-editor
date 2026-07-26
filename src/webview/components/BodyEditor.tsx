@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import type * as Monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import type { MockoonResponse, MockoonRoute } from '../../types';
-import { canFormat, describeMode, detectBodyMode, formatBody, languageIdForMode, validateBodyModel } from '../bodyEditor';
+import { canFormat, configureMonacoTheme, describeMode, detectBodyMode, formatBody, languageIdForMode, registerMockoonBodyLanguage } from '../bodyEditor';
 import { getConfiguredMonaco } from '../bodyEditor/monacoSetup';
 import type { VsCodeApi } from '../types';
+
+let bodyEditorMonacoConfigured = false;
 
 interface BodyEditorProps {
   route: MockoonRoute;
@@ -16,6 +18,7 @@ export function BodyEditor({ route, response, vscode, onStatus }: BodyEditorProp
   const containerRef = useRef<HTMLDivElement>(null);
   const editorRef = useRef<Monaco.editor.IStandaloneCodeEditor | null>(null);
   const currentTarget = useRef({ routeUuid: route.uuid, responseUuid: response.uuid });
+  const isSyncingBody = useRef(false);
   const [mode, setMode] = useState(() => detectBodyMode(response.body ?? ''));
 
   useEffect(() => {
@@ -27,19 +30,17 @@ export function BodyEditor({ route, response, vscode, onStatus }: BodyEditorProp
       return;
     }
 
-    const monaco = getConfiguredMonaco();
+    const monaco = getBodyEditorMonaco();
     const editorFont = getEditorFont();
+
     const editor = monaco.editor.create(containerRef.current, {
       automaticLayout: true,
       fontFamily: editorFont.family,
       fontSize: editorFont.size,
-      glyphMargin: true,
       lineHeight: Math.round(editorFont.size * 1.5),
       language: languageIdForMode(mode),
       minimap: { enabled: false },
-      overviewRulerLanes: 3,
       padding: { top: 10, bottom: 10 },
-      renderValidationDecorations: 'on',
       scrollBeyondLastLine: false,
       tabSize: 2,
       theme: 'mockoon-vscode',
@@ -53,29 +54,23 @@ export function BodyEditor({ route, response, vscode, onStatus }: BodyEditorProp
       editor.layout();
     });
 
-    const blurSubscription = editor.onDidBlurEditorWidget(() => {
-      const { routeUuid, responseUuid } = currentTarget.current;
-      vscode.postMessage({ type: 'updateBody', routeUuid, responseUuid, body: editor.getValue() });
-    });
-
     const changeSubscription = editor.onDidChangeModelContent(() => {
-      const nextMode = detectBodyMode(editor.getValue());
+      const body = editor.getValue();
+      const nextMode = detectBodyMode(body);
       setMode(nextMode);
 
       const model = editor.getModel();
       if (model) {
         monaco.editor.setModelLanguage(model, languageIdForMode(nextMode));
-        validateBodyModel(monaco, model, nextMode);
+      }
+
+      if (!isSyncingBody.current) {
+        const { routeUuid, responseUuid } = currentTarget.current;
+        vscode.postMessage({ type: 'updateBody', routeUuid, responseUuid, body });
       }
     });
 
-    const model = editor.getModel();
-    if (model) {
-      validateBodyModel(monaco, model, mode);
-    }
-
     return () => {
-      blurSubscription.dispose();
       changeSubscription.dispose();
       editor.dispose();
       editorRef.current = null;
@@ -96,14 +91,18 @@ export function BodyEditor({ route, response, vscode, onStatus }: BodyEditorProp
     setMode(nextMode);
 
     if (model) {
-      const monaco = getConfiguredMonaco();
+      const monaco = getBodyEditorMonaco();
       monaco.editor.setModelLanguage(model, languageIdForMode(nextMode));
 
       if (model.getValue() !== body) {
-        editor.setValue(body);
-      }
+        isSyncingBody.current = true;
 
-      validateBodyModel(monaco, model, nextMode);
+        try {
+          editor.setValue(body);
+        } finally {
+          isSyncingBody.current = false;
+        }
+      }
     }
   }, [response.uuid, response.body]);
 
@@ -117,19 +116,11 @@ export function BodyEditor({ route, response, vscode, onStatus }: BodyEditorProp
     const result = formatBody(editor.getValue(), mode);
 
     if (!result.ok) {
-      const monaco = getConfiguredMonaco();
-      const model = editor.getModel();
-
-      if (model) {
-        validateBodyModel(monaco, model, mode);
-      }
-
       onStatus(result.message);
       return;
     }
 
     editor.setValue(result.body);
-    vscode.postMessage({ type: 'updateBody', routeUuid: route.uuid, responseUuid: response.uuid, body: result.body });
   };
 
   return (
@@ -156,4 +147,16 @@ function getEditorFont() {
   const size = Number.parseInt(styles.getPropertyValue('--vscode-editor-font-size'), 10) || 13;
 
   return { family, size };
+}
+
+function getBodyEditorMonaco() {
+  const monaco = getConfiguredMonaco();
+
+  if (!bodyEditorMonacoConfigured) {
+    bodyEditorMonacoConfigured = true;
+    registerMockoonBodyLanguage(monaco);
+    configureMonacoTheme(monaco);
+  }
+
+  return monaco;
 }
