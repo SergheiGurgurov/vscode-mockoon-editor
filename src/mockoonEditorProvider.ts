@@ -37,12 +37,9 @@ export class MockoonEditorProvider implements vscode.CustomTextEditorProvider {
         : { type: 'error', error: parsed.error });
     };
 
-    const messageSubscription = webviewPanel.webview.onDidReceiveMessage(async (message: WebviewMessage) => {
-      if (message.type === 'ready') {
-        updateWebview();
-        return;
-      }
+    let pendingDocumentUpdate = Promise.resolve();
 
+    const applyMessage = async (message: WebviewMessage) => {
       const parsed = parseMockoonEnvironment(document.getText());
 
       if (!parsed.ok) {
@@ -64,6 +61,16 @@ export class MockoonEditorProvider implements vscode.CustomTextEditorProvider {
       if (!applied) {
         vscode.window.showErrorMessage('Could not update the Mockoon environment document.');
       }
+    };
+
+    const messageSubscription = webviewPanel.webview.onDidReceiveMessage(async (message: WebviewMessage) => {
+      if (message.type === 'ready') {
+        updateWebview();
+        return;
+      }
+
+      pendingDocumentUpdate = pendingDocumentUpdate.then(() => applyMessage(message), () => applyMessage(message));
+      await pendingDocumentUpdate;
     });
 
     const changeSubscription = vscode.workspace.onDidChangeTextDocument((event) => {

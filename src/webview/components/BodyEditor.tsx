@@ -19,6 +19,7 @@ export function BodyEditor({ route, response, vscode, onStatus }: BodyEditorProp
   const editorRef = useRef<Monaco.editor.IStandaloneCodeEditor | null>(null);
   const currentTarget = useRef({ routeUuid: route.uuid, responseUuid: response.uuid });
   const isSyncingBody = useRef(false);
+  const pendingBodyUpdate = useRef<{ routeUuid: string; responseUuid: string; body: string } | undefined>(undefined);
   const [mode, setMode] = useState(() => detectBodyMode(response.body ?? ''));
 
   useEffect(() => {
@@ -66,6 +67,7 @@ export function BodyEditor({ route, response, vscode, onStatus }: BodyEditorProp
 
       if (!isSyncingBody.current) {
         const { routeUuid, responseUuid } = currentTarget.current;
+        pendingBodyUpdate.current = { routeUuid, responseUuid, body };
         vscode.postMessage({ type: 'updateBody', routeUuid, responseUuid, body });
       }
     });
@@ -85,6 +87,16 @@ export function BodyEditor({ route, response, vscode, onStatus }: BodyEditorProp
     }
 
     const body = response.body ?? '';
+    const pending = pendingBodyUpdate.current;
+
+    if (pending && pending.routeUuid === route.uuid && pending.responseUuid === response.uuid) {
+      if (body === pending.body) {
+        pendingBodyUpdate.current = undefined;
+      } else {
+        return;
+      }
+    }
+
     const nextMode = detectBodyMode(body);
     const model = editor.getModel();
 
