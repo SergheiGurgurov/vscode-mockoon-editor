@@ -1,6 +1,7 @@
 import type { Environment, ProcessedDatabucket } from '@mockoon/commons';
 import { defaultEnvironmentVariablesPrefix } from '@mockoon/commons/dist/esm/constants/common.constants';
 import { TemplateParser } from '@mockoon/commons-server/dist/esm/libs/template-parser';
+import type { ServerRequest } from '@mockoon/commons-server/dist/esm/libs/requests';
 import type { MockoonEnvironment, MockoonResponse } from './types';
 
 interface ValidateTemplateBodyOptions {
@@ -68,9 +69,26 @@ function parseTemplate(content: string, environment: MockoonEnvironment, process
     environment: environment as Environment,
     processedDatabuckets,
     globalVariables: {},
+    request: validationRequest,
     envVarsPrefix: defaultEnvironmentVariablesPrefix
   });
 }
+
+const validationRequest: ServerRequest = {
+  cookies: {},
+  headers: {},
+  header: () => undefined,
+  get: () => undefined,
+  params: {},
+  query: {},
+  body: {},
+  stringBody: '',
+  hostname: undefined,
+  ip: undefined,
+  method: undefined,
+  originalPath: '',
+  originalRequest: undefined
+};
 
 function formatError(error: unknown): string {
   return error instanceof Error ? error.message : 'unknown parser error';

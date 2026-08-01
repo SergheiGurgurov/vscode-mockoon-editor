@@ -2,7 +2,7 @@
   "name": "vscode-mockoon-editor",
   "displayName": "Mockoon Editor",
   "description": "Edit Mockoon environment files inside VS Code.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "serghei-gurgurov",
   "icon": "assets/icon.png",
   "repository": "https://github.com/SergheiGurgurov/vscode-mockoon-editor.git",

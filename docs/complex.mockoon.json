@@ -1,0 +1,1293 @@
+{
+  "uuid": "abb06576-1233-493a-8aed-6ce9bf6c5953",
+  "lastMigration": 33,
+  "name": "Accrual",
+  "endpointPrefix": "accrual/api/v1",
+  "latency": 150,
+  "port": 8081,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "d8205a7c-f519-426b-8ad6-eb383035a987",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "tipologieEnte",
+      "responses": [
+        {
+          "uuid": "e88630be-84cb-4329-a6e5-1ae9208178d2",
+          "body": "[\r\n  {\r\n    \"id\": \"3\",\r\n    \"descrizione\": \"Regione\"\r\n  },\r\n  {\r\n    \"id\": \"1\",\r\n    \"descrizione\": \"Comune\"\r\n  },\r\n  {\r\n    \"id\": \"2\",\r\n    \"descrizione\": \"Provincia\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"descrizione\": \"ZZZZZ\"\r\n  }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "0f6c5877-b13e-4ae7-87c4-46e6b72bce72",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "entiUtente",
+      "responses": [
+        {
+          "uuid": "b484967f-fe7d-4ebc-a009-db6786af48d5",
+          "body": "[\r\n  {\r\n    \"id\": 1,\r\n    \"descrizione\": \"Comune di Caserta\"\r\n  },\r\n  {\r\n    \"id\": 2,\r\n    \"descrizione\": \"Comune di Napoli\"\r\n  },\r\n  {\r\n    \"id\": 3,\r\n    \"descrizione\": \"Comune di Roma\"\r\n  }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Multipli",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "9036a722-c177-4bc3-9b14-5c834f2d9f54",
+          "body": "[\n  {\n    \"id\": 1,\n    \"descrizione\": \"Comune di Caserta\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Singolo Ente",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "ffe59646-fc4a-49eb-9057-c6e447b8785b",
+      "type": "http",
+      "documentation": "Recupera il ruolo dell'utente",
+      "method": "get",
+      "endpoint": "ruoloUtente",
+      "responses": [
+        {
+          "uuid": "544603a0-e929-43eb-982c-b32bcdbd2749",
+          "body": "{\n  \"role\": \"002_ENT\",\n  \"xlsxEnabled\": false\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "ENTE",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+          "body": "{\r\n  \"role\": \"000_RAG\",\r\n  \"xlsxEnabled\": true\r\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "RGS",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "d4e5f6a7-b8c9-0123-defa-234567890123",
+          "body": "{\r\n  \"role\": \"001_ASS\",\r\n  \"xlsxEnabled\": true\r\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "SADMIN",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "0abf8e28-42d9-4a1d-9aac-28f5a468cd46",
+      "type": "http",
+      "documentation": "enteByID param enteId",
+      "method": "get",
+      "endpoint": "ente",
+      "responses": [
+        {
+          "uuid": "24515ef1-1a7d-4225-b013-5ff08e2029ce",
+          "body": "{\n  \"id\": 1,\n  \"descrizione\": \"Comune di Caserta\",\n  \"tipoEnte\": {\n    \"id\": \"1\",\n    \"descrizione\": \"Comune\"\n  },\n  \"codiceBDAP\": \"12345678901\",\n  \"codiceFiscale\": \"12345678901\",\n  \"xlsxEnabled\": true\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "b1a0c5f1-2e0b-4e37-9648-70d685e9ec17",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "74e3901f-bc59-46ba-aa46-971d6a9af53b",
+      "type": "http",
+      "documentation": "main search trasmissioni",
+      "method": "post",
+      "endpoint": "ricercaTrasmissioniSchemaBilancio",
+      "responses": [
+        {
+          "uuid": "6445d3d2-8a83-4c7b-93ec-b68733b4ac8c",
+          "body": "{\n  \"overview\": {\n    \"entiTenutiAllInvio\": {{faker 'number.int' min=50 max=200}},\n    \"entiConSchemiInviati\": {{faker 'number.int' min=30 max=150}},\n    \"trasmissioniConErrori\": {{faker 'number.int' min=0 max=20}},\n    \"incidenzaSuSpesa\": 0\n  },\n  \"content\": [\n    {{#repeat 5}}\n    {\n      \"id\": {{faker 'number.int' min=1000 max=9999}},\n      \"annoEsercizio\": {{body 'annoEsercizio' 2025}},\n      \"statoDocumento\": \"{{oneOf (array 'ACQUISITO' 'IN_ELABORAZIONE' 'NON_ACQUISITO' 'INADEMPIENTE')}}\",\n      \"esitoControlli\": [{{#repeat 0 2}}\"{{faker 'lorem.word'}}\"{{/repeat}}],\n      \"versione\": \"{{faker 'number.int' min=1 max=5}}.0\",\n      \"versioniPrecedenti\": [{{#repeat 0 3}}{\"description\": \"v{{faker 'number.int' min=1 max=5}}\", \"id\": \"{{faker 'number.int' min=1 max=5}}\"}{{/repeat}}],\n      \"dataTrasmissione\": \"{{dateFormat (faker 'date.past') 'yyyy-MM-dd'}}\",\n      \"tipologiaEnte\": {\n        \"id\": \"1\",\n        \"descrizione\": \"{{oneOf (array 'Comune' 'Provincia' 'Regione')}}\"\n      },\n      \"denominazioneEnte\": \"{{faker 'company.name'}}\",\n      \"codiceFiscaleEnte\": \"{{faker 'number.int' min=10000000000 max=99999999999}}\",\n      \"codiceBDAPEnte\": \"{{faker 'number.int' min=10000000000 max=99999999999}}\",\n      \"pesoPercentuale\": 0,\n      \"fase\": \"CONSUNTIVO\",\n      \"allegati\": [\n        {\n          \"formato\": \"XLSX\",\n          \"id\": \"{{faker 'number.int' min=1 max=5}}\"\n        }\n      ]\n    }\n    {{/repeat}}\n  ],\n  \"page\": {\n    \"size\": {{queryParam 'size' 10}},\n    \"number\": {{queryParam 'page' 0}},\n    \"totalElements\": 8,\n    \"totalPages\": 1\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "e73599c7-7d0c-46eb-8f9b-ccff5f00ab5d",
+          "body": "{\n  \"overview\": {\n    \"entiTenutiAllInvio\": {{faker 'number.int' min=50 max=200}},\n    \"entiConSchemiInviati\": {{faker 'number.int' min=30 max=150}},\n    \"trasmissioniConErrori\": {{faker 'number.int' min=0 max=20}},\n    \"incidenzaSuSpesa\": {{faker 'number.float' min=0 max=100 precision=0.01}}\n  },\n  \"content\": [],\n  \"page\": {\n    \"size\": {{queryParam 'size' 10}},\n    \"number\": {{queryParam 'page' 0}},\n    \"totalElements\": 0,\n    \"totalPages\": 1\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Empty Set",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "idEnte",
+              "value": "2",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d",
+          "body": "{\n  \"error\": {\n    \"detail\": \"Parametri di ricerca non validi\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Bad Request",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "idEnte",
+              "value": "3",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "3f0ce0f7-2fe1-44f7-b986-8c59f871f2e8",
+      "type": "http",
+      "documentation": "Export ricerca trasmissioni",
+      "method": "post",
+      "endpoint": "exportRicercaTrasmissioni",
+      "responses": [
+        {
+          "uuid": "5808e283-38df-4dbe-b8ea-961aeed1a743",
+          "body": "{\n  \"fileName\": \"ricerca_trasmissioni.xlsx\",\n  \"bytes\": \"{{faker 'string.alphanumeric' 100}}\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "ff82cb9d-d145-49dd-a0b7-a1b1538343a1",
+          "body": "{\n  \"error\": {\n    \"detail\": \"Parametri di esportazione non validi\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Bad Request",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "idEnte",
+              "value": "3",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+      "type": "http",
+      "documentation": "Get trasmissione detail by ID",
+      "method": "get",
+      "endpoint": "trasmissioneSchemaBilancio",
+      "responses": [
+        {
+          "uuid": "2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+          "body": "{\n  \"id\": {{queryParam 'id' 1001}},\n  \"annoEsercizio\": 2024,\n  \"statoDocumento\": \"{{oneOf (array 'ACQUISITO' 'IN_ELABORAZIONE' 'NON_ACQUISITO')}}\",\n  \"esitoControlli\": [\n    {{#repeat 2 4}}\n    \"{{faker 'lorem.word'}}\"{{#unless @last}},{{/unless}}\n    {{/repeat}}\n  ],\n  \"versione\": \"{{faker 'number.int' min=1 max=5}}.0\",\n  \"versioniPrecedenti\": [\n    {{#repeat 0 3}}\n    {\n      \"description\": \"v{{faker 'number.int' min=1 max=5}}\",\n      \"id\": \"{{faker 'string.uuid'}}\"\n    }{{#unless @last}},{{/unless}}\n    {{/repeat}}\n  ],\n  \"dataTrasmissione\": \"{{faker 'date.past' 365}}\",\n  \"tipologiaEnte\": {\n    \"id\": \"1\",\n    \"descrizione\": \"{{oneOf (array 'Comune' 'Provincia' 'Regione')}}\"\n  },\n  \"denominazioneEnte\": \"Comune di {{faker 'location.city'}}\",\n  \"codiceFiscaleEnte\": \"{{faker 'number.int' min=10000000000 max=99999999999}}\",\n  \"codiceBDAPEnte\": \"{{faker 'number.int' min=10000000000 max=99999999999}}\",\n  \"pesoPercentuale\": {{faker 'number.float' min=0 max=100 precision=0.01}},\n  \"fase\": \"CONSUNTIVO\",\n  \"allegati\": [\n    {{#repeat 1 2}}\n    {\n      \"formato\": \"{{oneOf (array 'XLSX' 'XBRL')}}\",\n      \"id\": \"{{faker 'number.int' min=1 max=5}}\"\n    }{{#unless @last}},{{/unless}}\n    {{/repeat}}\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
+          "body": "{\n  \"error\": {\n    \"detail\": \"Trasmissione non trovata\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Not Found",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a",
+      "type": "http",
+      "documentation": "Get file by ID",
+      "method": "get",
+      "endpoint": "file",
+      "responses": [
+        {
+          "uuid": "5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b",
+          "body": "{\n  \"fileName\": \"schema_bilancio_{{queryParam 'id' 'unknown'}}.xlsx\",\n  \"bytes\": \"{{faker 'string.alphanumeric' 100}}\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c",
+          "body": "{\n  \"error\": {\n    \"detail\": \"File non trovato\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Not Found",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d",
+      "type": "http",
+      "documentation": "Get XLSX template",
+      "method": "get",
+      "endpoint": "templateXlsx",
+      "responses": [
+        {
+          "uuid": "8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e",
+          "body": "{\n  \"fileName\": \"template_schema_bilancio.xlsx\",\n  \"bytes\": \"{{faker 'string.alphanumeric' 100}}\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f",
+      "type": "http",
+      "documentation": "Upload schema bilancio file",
+      "method": "post",
+      "endpoint": "uploadSchemaBilancio",
+      "responses": [
+        {
+          "uuid": "0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a",
+          "body": "{\n  \"id\": {{faker 'number.int' min=10000 max=99999}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b",
+          "body": "{\n  \"error\": {\n    \"detail\": \"File non valido o formato non supportato\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Bad Request",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c",
+      "type": "http",
+      "documentation": "Delete uploaded schema bilancio",
+      "method": "delete",
+      "endpoint": "uploadSchemaBilancio",
+      "responses": [
+        {
+          "uuid": "3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e",
+          "body": "{\n  \"error\": {\n    \"detail\": \"Upload non trovato\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Not Found",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "2c9f4a31-c0df-4b84-9f17-5f3f7fcbe2d5",
+      "type": "http",
+      "documentation": "Annulla scansione antivirus",
+      "method": "delete",
+      "endpoint": "annullaScansione",
+      "responses": [
+        {
+          "uuid": "95e2fd8d-0d0d-4a6a-8dc2-bf7a24728a95",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f",
+      "type": "http",
+      "documentation": "Trasmetti schema bilancio",
+      "method": "post",
+      "endpoint": "trasmettiSchemaBilancio",
+      "responses": [
+        {
+          "uuid": "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b",
+          "body": "{\n  \"error\": {\n    \"detail\": \"Upload ID non valido o dati mancanti\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Bad Request",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c",
+      "type": "http",
+      "documentation": "Get esito trasmissione by ID",
+      "method": "get",
+      "endpoint": "esitoTrasmissione",
+      "responses": [
+        {
+          "uuid": "9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d",
+          "body": "{\n  \"statoDocumento\": \"ACQUISITO\",\n  \"esito\": true,\n  \"controlliFormali\": [],\n  \"controlliValidazione\": [\n    {{#repeat 0 3}}\n    {\n      \"codiceTermineRiferimento\": \"VAL{{faker 'number.int' min=100 max=999}}\",\n      \"descrizioneTermineRiferimento\": \"{{faker 'lorem.sentence'}}\",\n      \"valoreRiscontrato\": \"{{faker 'number.int' min=1000 max=9999}}\",\n      \"controlloApplicato\": \"{{faker 'lorem.words' 3}}\"\n    }{{#unless @last}},{{/unless}}\n    {{/repeat}}\n  ],\n  \"controlliQuadratura\": [\n    {{#repeat 0 3}}\n    {\n      \"codiceTermineRiferimento\": \"QUA{{faker 'number.int' min=100 max=999}}\",\n      \"descrizioneTermineRiferimento\": \"{{faker 'lorem.sentence'}}\",\n      \"tipologiaQuadratura\": \"{{faker 'lorem.words' 2}}\",\n      \"controlloApplicato\": \"{{faker 'lorem.words' 3}}\",\n      \"valoreRiscontrato\": \"{{faker 'number.int' min=1000 max=9999}}\",\n      \"valoreAtteso\": \"{{faker 'number.int' min=1000 max=9999}}\",\n      \"scostamento\": \"{{faker 'number.int' min=-500 max=500}}\",\n      \"scostamentoPercentuale\": \"{{faker 'number.float' min=-10 max=10 fractionDigits=2}}\",\n      \"scostamentoConTolleranza\": {{faker 'datatype.boolean'}}\n    }{{#unless @last}},{{/unless}}\n    {{/repeat}}\n  ],\n  \"controlliCoerenza\": [\n    {{#repeat 0 3}}\n    {\n      \"codiceTermineRiferimento\": \"COE{{faker 'number.int' min=100 max=999}}\",\n      \"descrizioneTermineRiferimento\": \"{{faker 'lorem.sentence'}}\",\n      \"valoreRiscontrato\": \"{{faker 'number.int' min=1000 max=9999}}\",\n      \"controlloApplicato\": \"{{faker 'lorem.words' 3}}\"\n    }{{#unless @last}},{{/unless}}\n    {{/repeat}}\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Esito OK",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "65de046d-da62-470b-ad9e-61e6ac34717b",
+          "body": "{\n    \"statoDocumento\": \"ACQUISITO\",\n    \"esito\": true,\n    \"controlliFormali\": [],\n    \"controlliValidazione\": [\n        {\n            \"codiceTermineRiferimento\": \"SP_PASS-F-TOT\",\n            \"descrizioneTermineRiferimento\": \"Stato Patrimoniale >> PASSIVO >> PASSIVITA' NON CORRENTI >> Fondi >> TOTALE FONDI\",\n            \"valoreRiscontrato\": \"-6000\",\n            \"controlloApplicato\": \"Voce pari o maggiore di zero\"\n        },\n        {\n            \"codiceTermineRiferimento\": \"SP_PASS-F.1\",\n            \"descrizioneTermineRiferimento\": \"Stato Patrimoniale >> PASSIVO >> PASSIVITA' NON CORRENTI >> Fondi >> Per trattamento di quiescenza e trattamento di fine rapporto\",\n            \"valoreRiscontrato\": \"-1000\",\n            \"controlloApplicato\": \"Voce pari o maggiore di zero\"\n        },\n        {\n            \"codiceTermineRiferimento\": \"SP_PASS-F.2\",\n            \"descrizioneTermineRiferimento\": \"Stato Patrimoniale >> PASSIVO >> PASSIVITA' NON CORRENTI >> Fondi >> Per imposte\",\n            \"valoreRiscontrato\": \"-2000\",\n            \"controlloApplicato\": \"Voce pari o maggiore di zero\"\n        },\n        {\n            \"codiceTermineRiferimento\": \"SP_PASS-F.3\",\n            \"descrizioneTermineRiferimento\": \"Stato Patrimoniale >> PASSIVO >> PASSIVITA' NON CORRENTI >> Fondi >> Altri fondi\",\n            \"valoreRiscontrato\": \"-3000\",\n            \"controlloApplicato\": \"Voce pari o maggiore di zero\"\n        },\n        {\n            \"codiceTermineRiferimento\": \"SP_PassivitaNonCorrentiTotale\",\n            \"descrizioneTermineRiferimento\": \"Stato Patrimoniale >> PASSIVO >> PASSIVITA' NON CORRENTI >> TOTALE PASSIVITA' NON CORRENTI\",\n            \"valoreRiscontrato\": \"-6000\",\n            \"controlloApplicato\": \"Voce pari o maggiore di zero\"\n        },\n        {\n            \"codiceTermineRiferimento\": \"SP_PassivoTotale\",\n            \"descrizioneTermineRiferimento\": \"Stato Patrimoniale >> PASSIVO >> TOTALE PASSIVO (PN+PASSIVITA' NON CORRENTI + PASSIVITA' CORRENTI)\",\n            \"valoreRiscontrato\": \"-6000\",\n            \"controlloApplicato\": \"Voce pari o maggiore di zero\"\n        },\n        {\n            \"codiceTermineRiferimento\": \"CE_B.12\",\n            \"descrizioneTermineRiferimento\": \"Conto Economico >> B) COSTI E ONERI DELLA GESTIONE OPERATIVA >> Personale\",\n            \"valoreRiscontrato\": \"-1100\",\n            \"controlloApplicato\": \"L’importo deve essere positivo\"\n        },\n        {\n            \"codiceTermineRiferimento\": \"CE_B.13\",\n            \"descrizioneTermineRiferimento\": \"Conto Economico >> B) COSTI E ONERI DELLA GESTIONE OPERATIVA >> Ammortamenti\",\n            \"valoreRiscontrato\": \"-500\",\n            \"controlloApplicato\": \"L’importo deve essere positivo\"\n        },\n        {\n            \"codiceTermineRiferimento\": \"CE_B.14\",\n            \"descrizioneTermineRiferimento\": \"Conto Economico >> B) COSTI E ONERI DELLA GESTIONE OPERATIVA >> Accantonamenti\",\n            \"valoreRiscontrato\": \"-300\",\n            \"controlloApplicato\": \"L’importo deve essere positivo\"\n        },\n        {\n            \"codiceTermineRiferimento\": \"SPD_PASS-H.6\",\n            \"descrizioneTermineRiferimento\": \"Stato Patrimoniale - Dettagli >> PASSIVO >> PASSIVITA' CORRENTI - Dettagli importi relativi alle note (4) e (5) >> Debiti >> Verso concessionari di servizi (5) - separata indicazione dei debiti di cui al modello della passività finanziaria\",\n            \"valoreRiscontrato\": \"-2000\",\n            \"controlloApplicato\": \"L’importo deve essere positivo\"\n        },\n        {\n            \"codiceTermineRiferimento\": \"SPD_PASS-H.6.1\",\n            \"descrizioneTermineRiferimento\": \"Stato Patrimoniale - Dettagli >> PASSIVO >> PASSIVITA' CORRENTI - Dettagli importi relativi alle note (4) e (5) >> Debiti >> Verso concessionari di servizi (5) - separata indicazione dei debiti di cui al modello della passività finanziaria >> Debiti (correnti) verso concessionari di servizi (Modello della passività finanziaria) \",\n            \"valoreRiscontrato\": \"-1000\",\n            \"controlloApplicato\": \"L’importo deve essere positivo\"\n        },\n        {\n            \"codiceTermineRiferimento\": \"SPD_PASS-H.6.2\",\n            \"descrizioneTermineRiferimento\": \"Stato Patrimoniale - Dettagli >> PASSIVO >> PASSIVITA' CORRENTI - Dettagli importi relativi alle note (4) e (5) >> Debiti >> Verso concessionari di servizi (5) - separata indicazione dei debiti di cui al modello della passività finanziaria >> Debiti (correnti) per conferimento di un diritto relativo a servizi in concessione (Modello del conferimento di un diritto al concessionario)\",\n            \"valoreRiscontrato\": \"-1000\",\n            \"controlloApplicato\": \"L’importo deve essere positivo\"\n        }\n    ],\n    \"controlliQuadratura\": [\n        {\n            \"codiceTermineRiferimento\": \"SP_ATT-I.1\",\n            \"descrizioneTermineRiferimento\": \"Stato Patrimoniale >> ATTIVO >> ATTIVITA' CORRENTI >> Disponibilità liquide >> Conto di tesoreria\",\n            \"tipologiaQuadratura\": \"Controlli di quadratura\",\n            \"controlloApplicato\": \"STATO PATRIMONIALE >> ATTIVO >> ATTIVITA' CORRENTI >> Disponibilità liquide >>Conto di tesoreria = + presso Istituto cassiere (tesoriere) + presso Banca d'Italia \",\n            \"valoreRiscontrato\": \"4000\",\n            \"valoreAtteso\": \"3900\",\n            \"scostamento\": \"100\",\n            \"scostamentoPercentuale\": \"2.5\",\n            \"scostamentoConTolleranza\": null\n        }\n    ],\n    \"controlliCoerenza\": [\n        {\n            \"codiceTermineRiferimento\": \"SPD_PASS-H.6\",\n            \"descrizioneTermineRiferimento\": \"Stato Patrimoniale - Dettagli >> PASSIVO >> PASSIVITA' CORRENTI - Dettagli importi relativi alle note (4) e (5) >> Debiti >> Verso concessionari di servizi (5) - separata indicazione dei debiti di cui al modello della passività finanziaria\",\n            \"valoreRiscontrato\": \"-2000\",\n            \"controlloApplicato\": \"Voce pari o maggiore di zero\"\n        },\n        {\n            \"codiceTermineRiferimento\": \"SPD_PASS-H.6.1\",\n            \"descrizioneTermineRiferimento\": \"Stato Patrimoniale - Dettagli >> PASSIVO >> PASSIVITA' CORRENTI - Dettagli importi relativi alle note (4) e (5) >> Debiti >> Verso concessionari di servizi (5) - separata indicazione dei debiti di cui al modello della passività finanziaria >> Debiti (correnti) verso concessionari di servizi (Modello della passività finanziaria) \",\n            \"valoreRiscontrato\": \"-1000\",\n            \"controlloApplicato\": \"Voce pari o maggiore di zero\"\n        },\n        {\n            \"codiceTermineRiferimento\": \"SPD_PASS-H.6.2\",\n            \"descrizioneTermineRiferimento\": \"Stato Patrimoniale - Dettagli >> PASSIVO >> PASSIVITA' CORRENTI - Dettagli importi relativi alle note (4) e (5) >> Debiti >> Verso concessionari di servizi (5) - separata indicazione dei debiti di cui al modello della passività finanziaria >> Debiti (correnti) per conferimento di un diritto relativo a servizi in concessione (Modello del conferimento di un diritto al concessionario)\",\n            \"valoreRiscontrato\": \"-1000\",\n            \"controlloApplicato\": \"Voce pari o maggiore di zero\"\n        }\n    ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "DEBUG",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "f1fc290c-a6ad-43ac-a348-dd4c30b34859",
+          "body": "{\n  \"statoDocumento\": \"NON_ACQUISITO\",\n  \"esito\": false,\n  \"controlliFormali\": [\n    {{#repeat 2 3}}\n    {\n      \"codiceErrore\": \"ERR{{faker 'number.int' min=100 max=999}}\",\n      \"descrizioneErrore\": \"{{faker 'lorem.sentence'}}\"\n    }{{#unless @last}},{{/unless}}\n    {{/repeat}}\n  ],\n  \"controlliValidazione\": [\n    {{#repeat 0 3}}\n    {\n      \"codiceTermineRiferimento\": \"VAL{{faker 'number.int' min=100 max=999}}\",\n      \"descrizioneTermineRiferimento\": \"{{faker 'lorem.sentence'}}\",\n      \"valoreRiscontrato\": \"{{faker 'number.int' min=1000 max=9999}}\",\n      \"controlloApplicato\": \"{{faker 'lorem.words' 3}}\"\n    }{{#unless @last}},{{/unless}}\n    {{/repeat}}\n  ],\n  \"controlliQuadratura\": [\n    {{#repeat 0 3}}\n    {\n      \"codiceTermineRiferimento\": \"QUA{{faker 'number.int' min=100 max=999}}\",\n      \"descrizioneTermineRiferimento\": \"{{faker 'lorem.sentence'}}\",\n      \"tipologiaQuadratura\": \"{{faker 'lorem.words' 2}}\",\n      \"controlloApplicato\": \"{{faker 'lorem.words' 3}}\",\n      \"valoreRiscontrato\": \"{{faker 'number.int' min=1000 max=9999}}\",\n      \"valoreAtteso\": \"{{faker 'number.int' min=1000 max=9999}}\",\n      \"scostamento\": \"{{faker 'number.int' min=-500 max=500}}\",\n      \"scostamentoPercentuale\": \"{{faker 'number.float' min=-10 max=10 precision=0.01}}\",\n      \"scostamentoConTolleranza\": {{faker 'datatype.boolean'}}\n    }{{#unless @last}},{{/unless}}\n    {{/repeat}}\n  ],\n  \"controlliCoerenza\": [\n    {{#repeat 0 3}}\n    {\n      \"codiceTermineRiferimento\": \"COE{{faker 'number.int' min=100 max=999}}\",\n      \"descrizioneTermineRiferimento\": \"{{faker 'lorem.sentence'}}\",\n      \"valoreRiscontrato\": \"{{faker 'number.int' min=1000 max=9999}}\",\n      \"controlloApplicato\": \"{{faker 'lorem.words' 3}}\"\n    }{{#unless @last}},{{/unless}}\n    {{/repeat}}\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Esito KO",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "0b1c2d3e-4f5a-6b7c-8d9e-0f1a2b3c4d5e",
+          "body": "{\n  \"error\": {\n    \"detail\": \"Trasmissione non trovata\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Not Found",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f",
+      "type": "http",
+      "documentation": "Export trasmissione to Excel by tipo",
+      "method": "get",
+      "endpoint": "trasmissione/excel/",
+      "responses": [
+        {
+          "uuid": "2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a",
+          "body": "{\n  \"fileName\": \"esito_trasmissione_{{queryParam 'id' 'unknown'}}_{{queryParam 'tipo' 'controlli'}}.xlsx\",\n  \"bytes\": \"{{faker 'string.alphanumeric' 100}}\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b",
+          "body": "{\n  \"error\": {\n    \"detail\": \"Parametri non validi\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Bad Request",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "4f5a6b7c-8d9e-0f1a-2b3c-4d5e6f7a8b9c",
+      "type": "http",
+      "documentation": "Get prospetti contabili by trasmissione ID",
+      "method": "get",
+      "endpoint": "prospettiContabiliTrasmissione",
+      "responses": [
+        {
+          "uuid": "5a6b7c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d",
+          "body": "[\n  {{#repeat 25 48}}\n  {\n    \"id\": {{faker 'number.int' min=100 max=999}},\n    \"descrizione\": \"Prospetto {{faker 'lorem.words' 2}}\"\n  }{{#unless @last}},{{/unless}}\n  {{/repeat}}\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "6b7c8d9e-0f1a-2b3c-4d5e-6f7a8b9c0d1e",
+          "body": "{\n  \"error\": {\n    \"detail\": \"Trasmissione non trovata\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Not Found",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "7c8d9e0f-1a2b-3c4d-5e6f-7a8b9c0d1e2f",
+      "type": "http",
+      "documentation": "Get prospetto contabile detail by ID",
+      "method": "get",
+      "endpoint": "prospettoContabile",
+      "responses": [
+        {
+          "uuid": "8d9e0f1a-2b3c-4d5e-6f7a-8b9c0d1e2f3a",
+          "body": "{\n  \"id\": 1,\n  \"descrizione\": \"Conto Economico\",\n  \"schemi\": [\n    {\n      \"titolo\": \"A) PROVENTI E RICAVI GESTIONE OPERATIVA\",\n      \"header\": {\n        \"codice\": \"Codice\",\n        \"largeCodice\": true,\n        \"boldCodice\": true,\n        \"descrizione\": \"Conto Economico\",\n        \"largeDescrizione\": true,\n        \"boldDescrizione\": true,\n        \"depthDescrizione\": 0,\n        \"descriptionOnly\": false,\n        \"valore\": 2025\n      },\n      \"rows\": [\n        {\n          \"codice\": \"CE_A.1\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Proventi da tributi\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 100\n        },\n        {\n          \"codice\": \"CE_A.2\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Proventi da contributi per prestazioni sociali\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 200\n        },\n        {\n          \"codice\": \"CE_A.3\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Trasferimenti\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 120\n        },\n        {\n          \"codice\": \"CE_A.3.1\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Trasferimenti attivi in conto esercizio\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 2,\n          \"descriptionOnly\": false,\n          \"valore\": 50\n        },\n        {\n          \"codice\": \"CE_A.3.2\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Trasferimenti attivi in conto investimenti\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 2,\n          \"descriptionOnly\": false,\n          \"valore\": 70\n        },\n        {\n          \"codice\": \"CE_A.4\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Ricavi delle vendite e prestazioni e proventi da servizi pubblici\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 800\n        },\n        {\n          \"codice\": \"CE_A.4.1\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Ricavi della vendita di beni\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 2,\n          \"descriptionOnly\": false,\n          \"valore\": 500\n        },\n        {\n          \"codice\": \"CE_A.4.2\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Ricavi e proventi dalla prestazione di servizi\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 2,\n          \"descriptionOnly\": false,\n          \"valore\": 100\n        },\n        {\n          \"codice\": \"CE_A.4.3\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Ricavi per lavori in corso su ordinazione\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 2,\n          \"descriptionOnly\": false,\n          \"valore\": 200\n        },\n        {\n          \"codice\": \"CE_A.5\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Ricavi da partecipazioni\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        },\n        {\n          \"codice\": \"CE_A.6\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Altri proventi e ricavi diversi\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        },\n        {\n          \"codice\": \"CE_A-TOT\",\n          \"largeCodice\": true,\n          \"boldCodice\": false,\n          \"descrizione\": \"TOTALE PROVENTI E RICAVI GESTIONE OPERATIVA (A)\",\n          \"largeDescrizione\": true,\n          \"boldDescrizione\": true,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 1220\n        }\n      ]\n    },\n    {\n      \"titolo\": \"B) COSTI E ONERI GESTIONE OPERATIVA\",\n      \"header\": {\n        \"codice\": \"Codice\",\n        \"largeCodice\": true,\n        \"boldCodice\": true,\n        \"descrizione\": \"Conto Economico\",\n        \"largeDescrizione\": true,\n        \"boldDescrizione\": true,\n        \"depthDescrizione\": 0,\n        \"descriptionOnly\": false,\n        \"valore\": 2025\n      },\n      \"rows\": [\n        {\n          \"codice\": \"CE_B.7\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Acquisto di materie prime, materiali di consumo e merci\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 25\n        },\n        {\n          \"codice\": \"CE_B.8\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"(+/-) Variazioni delle rimanenze di materie prime, materiali di consumo e merci\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        },\n        {\n          \"codice\": \"CE_B.9\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Acquisto di servizi\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 120\n        },\n        {\n          \"codice\": \"CE_B.10\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Utilizzo di beni di terzi\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 65\n        },\n        {\n          \"codice\": \"CE_B.11\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Trasferimenti\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 60\n        },\n        {\n          \"codice\": \"CE_B.11.1\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Trasferimenti in conto esercizio\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 2,\n          \"descriptionOnly\": false,\n          \"valore\": 25\n        },\n        {\n          \"codice\": \"CE_B.11.2\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Trasferimenti in conto investimenti\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 2,\n          \"descriptionOnly\": false,\n          \"valore\": 35\n        },\n        {\n          \"codice\": \"CE_B.12\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Personale\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 250\n        },\n        {\n          \"codice\": \"CE_B.13\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Ammortamenti\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 70\n        },\n        {\n          \"codice\": \"CE_B.14\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Accantonamenti\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 30\n        },\n        {\n          \"codice\": \"CE_B.15\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Oneri diversi dalla gestione\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 50\n        },\n        {\n          \"codice\": \"CE_B.16\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"(+/-) Variazioni nelle rimanenze di semilavorati, prodotti in corso di lavorazione e di prodotti finiti\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        },\n        {\n          \"codice\": \"CE_B.17\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"(‐) Incrementi di immobilizzazioni per lavori interni\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        },\n        {\n          \"codice\": \"CE_B-TOT\",\n          \"largeCodice\": true,\n          \"boldCodice\": false,\n          \"descrizione\": \"TOTALE COSTI E ONERI GESTIONE OPERATIVA (B)\",\n          \"largeDescrizione\": true,\n          \"boldDescrizione\": true,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 670\n        }\n      ]\n    },\n    {\n      \"titolo\": \"C) RETTIFICHE DI VALORE DI ATTIVITA' E PASSIVITA'\",\n      \"header\": {\n        \"codice\": \"Codice\",\n        \"largeCodice\": true,\n        \"boldCodice\": true,\n        \"descrizione\": \"Conto Economico\",\n        \"largeDescrizione\": true,\n        \"boldDescrizione\": true,\n        \"depthDescrizione\": 0,\n        \"descriptionOnly\": false,\n        \"valore\": 2025\n      },\n      \"rows\": [\n        {\n          \"codice\": \"CE_C.18\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Rivalutazioni\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        },\n        {\n          \"codice\": \"CE_C.19\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Svalutazioni\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        },\n        {\n          \"codice\": \"CE_C-TOT\",\n          \"largeCodice\": true,\n          \"boldCodice\": false,\n          \"descrizione\": \"TOTALE RETTIFICHE DI VALORE DI ATTIVITA' E PASSIVITA' (C)\",\n          \"largeDescrizione\": true,\n          \"boldDescrizione\": true,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        }\n      ]\n    },\n    {\n      \"titolo\": \"RISULTATO ECONOMICO GESTIONE OPERATIVA\",\n      \"header\": {\n        \"codice\": \"Codice\",\n        \"largeCodice\": true,\n        \"boldCodice\": true,\n        \"descrizione\": \"Conto Economico\",\n        \"largeDescrizione\": true,\n        \"boldDescrizione\": true,\n        \"depthDescrizione\": 0,\n        \"descriptionOnly\": false,\n        \"valore\": 2025\n      },\n      \"rows\": [\n        {\n          \"codice\": \"sr_CE_RisultatoEconomicoGestioneOperativa\",\n          \"largeCodice\": true,\n          \"boldCodice\": false,\n          \"descrizione\": \"RISULTATO ECONOMICO GESTIONE OPERATIVA (A‐B+/‐C)\",\n          \"largeDescrizione\": true,\n          \"boldDescrizione\": true,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        }\n      ]\n    },\n    {\n      \"titolo\": \"D) RICAVI E COSTI GESTIONE FINANZIARIA\",\n      \"header\": {\n        \"codice\": \"Codice\",\n        \"largeCodice\": true,\n        \"boldCodice\": true,\n        \"descrizione\": \"Conto Economico\",\n        \"largeDescrizione\": true,\n        \"boldDescrizione\": true,\n        \"depthDescrizione\": 0,\n        \"descriptionOnly\": false,\n        \"valore\": 2025\n      },\n      \"rows\": [\n        {\n          \"codice\": \"CE_D.20\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Interessi attivi\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 50\n        },\n        {\n          \"codice\": \"CE_D.21\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Altri ricavi finanziari\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 30\n        },\n        {\n          \"codice\": \"sr_CE_TotaleRicaviFinanziari\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Totale ricavi finanziari\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": true,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        },\n        {\n          \"codice\": \"CE_D.22\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Interessi passivi\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 20\n        },\n        {\n          \"codice\": \"CE_D.23\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Altri costi finanziari\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 10\n        },\n        {\n          \"codice\": \"sr_CE_TotaleCostiFinanziari\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Totale costi finanziari\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": true,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        },\n        {\n          \"codice\": \"sr_CE_RisultatoEconomicoGestioneFinanziaria\",\n          \"largeCodice\": true,\n          \"boldCodice\": false,\n          \"descrizione\": \"RISULTATO ECONOMICO GESTIONE FINANZIARIA (D)\",\n          \"largeDescrizione\": true,\n          \"boldDescrizione\": true,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        }\n      ]\n    },\n    {\n      \"titolo\": \"RISULTATO ECONOMICO GESTIONE ORDINARIA\",\n      \"header\": {\n        \"codice\": \"Codice\",\n        \"largeCodice\": true,\n        \"boldCodice\": true,\n        \"descrizione\": \"Conto Economico\",\n        \"largeDescrizione\": true,\n        \"boldDescrizione\": true,\n        \"depthDescrizione\": 0,\n        \"descriptionOnly\": false,\n        \"valore\": 2025\n      },\n      \"rows\": [\n        {\n          \"codice\": \"sr_CE_RisultatoEconomicoGestioneOrdinaria\",\n          \"largeCodice\": true,\n          \"boldCodice\": false,\n          \"descrizione\": \"RISULTATO ECONOMICO GESTIONE ORDINARIA (A‐B+/‐C+/‐D)\",\n          \"largeDescrizione\": true,\n          \"boldDescrizione\": true,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        }\n      ]\n    },\n    {\n      \"titolo\": \"E) RICAVI/PROVENTI E COSTI/ONERI GESTIONE STRAORDINARIA\",\n      \"header\": {\n        \"codice\": \"Codice\",\n        \"largeCodice\": true,\n        \"boldCodice\": true,\n        \"descrizione\": \"Conto Economico\",\n        \"largeDescrizione\": true,\n        \"boldDescrizione\": true,\n        \"depthDescrizione\": 0,\n        \"descriptionOnly\": false,\n        \"valore\": 2025\n      },\n      \"rows\": [\n        {\n          \"codice\": \"CE_E.24\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Ricavi e proventi straordinari\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        },\n        {\n          \"codice\": \"CE_E.24.1\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Sopravvenienze attive e insussistenze del passivo\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 2,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        },\n        {\n          \"codice\": \"CE_E.24.2\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Altri ricavi e proventi straordinari\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 2,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        },\n        {\n          \"codice\": \"CE_E.25\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Costi e oneri straordinari\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        },\n        {\n          \"codice\": \"CE_E.25.1\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Sopravvenienze passive e insussistenze dell'attivo\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 2,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        },\n        {\n          \"codice\": \"CE_E.25.2\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Altri costi e oneri straordinari\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 2,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        },\n        {\n          \"codice\": \"sr_CE_RisultatoEconomicoGestioneStraordinaria\",\n          \"largeCodice\": true,\n          \"boldCodice\": false,\n          \"descrizione\": \"RISULTATO ECONOMICO GESTIONE STRAORDINARIA (E)\",\n          \"largeDescrizione\": true,\n          \"boldDescrizione\": true,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        }\n      ]\n    },\n    {\n      \"titolo\": \"RISULTATO ECONOMICO PRIMA DELLE IMPOSTE\",\n      \"header\": {\n        \"codice\": \"Codice\",\n        \"largeCodice\": true,\n        \"boldCodice\": true,\n        \"descrizione\": \"Conto Economico\",\n        \"largeDescrizione\": true,\n        \"boldDescrizione\": true,\n        \"depthDescrizione\": 0,\n        \"descriptionOnly\": false,\n        \"valore\": 2025\n      },\n      \"rows\": [\n        {\n          \"codice\": \"sr_CE_RisultatoEconomicoPrimaImposte\",\n          \"largeCodice\": true,\n          \"boldCodice\": false,\n          \"descrizione\": \"RISULTATO ECONOMICO PRIMA DELLE IMPOSTE (A‐B+/‐C+/‐D+/‐E)\",\n          \"largeDescrizione\": true,\n          \"boldDescrizione\": true,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        }\n      ]\n    },\n    {\n      \"titolo\": \"IMPOSTE D'ESERCIZIO\",\n      \"header\": {\n        \"codice\": \"Codice\",\n        \"largeCodice\": true,\n        \"boldCodice\": true,\n        \"descrizione\": \"Conto Economico\",\n        \"largeDescrizione\": true,\n        \"boldDescrizione\": true,\n        \"depthDescrizione\": 0,\n        \"descriptionOnly\": false,\n        \"valore\": 2025\n      },\n      \"rows\": [\n        {\n          \"codice\": \"sr_CE_26\",\n          \"largeCodice\": false,\n          \"boldCodice\": false,\n          \"descrizione\": \"Imposte d'esercizio\",\n          \"largeDescrizione\": false,\n          \"boldDescrizione\": false,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        }\n      ]\n    },\n    {\n      \"titolo\": \"RISULTATO ECONOMICO DELL'ESERCIZIO\",\n      \"header\": {\n        \"codice\": \"Codice\",\n        \"largeCodice\": true,\n        \"boldCodice\": true,\n        \"descrizione\": \"Conto Economico\",\n        \"largeDescrizione\": true,\n        \"boldDescrizione\": true,\n        \"depthDescrizione\": 0,\n        \"descriptionOnly\": false,\n        \"valore\": 2025\n      },\n      \"rows\": [\n        {\n          \"codice\": \"sr_CE_RisultatoEconomicoEsercizio\",\n          \"largeCodice\": true,\n          \"boldCodice\": false,\n          \"descrizione\": \"RISULTATO ECONOMICO DELL'ESERCIZIO\",\n          \"largeDescrizione\": true,\n          \"boldDescrizione\": true,\n          \"depthDescrizione\": 0,\n          \"descriptionOnly\": false,\n          \"valore\": 0\n        }\n      ]\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Conto Economico",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "e2b0e069-e07e-497c-bc71-52654648269a",
+          "body": "{\n    \"id\": 2,\n    \"descrizione\": \"Stato Patrimoniale\",\n    \"schemi\": [\n        {\n            \"titolo\": \"A T T I V O\",\n            \"header\": {\n                \"codice\": \"Codice\",\n                \"largeCodice\": true,\n                \"boldCodice\": true,\n                \"descrizione\": \"Stato Patrimoniale\",\n                \"largeDescrizione\": true,\n                \"boldDescrizione\": true,\n                \"depthDescrizione\": 0,\n                \"descriptionOnly\": false,\n                \"valore\": 2025\n            },\n            \"rows\": [\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"ATTIVITA' NON CORRENTI\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": true,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Immobilizzazioni immateriali e avviamento [1] [2]\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_ATT-A.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Diritti di brevetto e utilizzazione opere dell'ingegno\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 10.0\n                },\n                {\n                    \"codice\": \"SP_ATT-A.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Concessioni, licenze, marchi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 20.0\n                },\n                {\n                    \"codice\": \"SP_ATT-A.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri diritti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 30.0\n                },\n                {\n                    \"codice\": \"SP_ATT-A.4\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Avviamento\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 40.0\n                },\n                {\n                    \"codice\": \"SP_ATT-A.5\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Immobilizzazioni in corso e acconti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 50.0\n                },\n                {\n                    \"codice\": \"SP_ATT-A.6\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altre\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 60.0\n                },\n                {\n                    \"codice\": \"SP_ATT-A-TOT\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Totale Immobilizzazioni immateriali e avviamento\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 70.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Immobilizzazioni materiali\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.1\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Beni demaniali [2]\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 80.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.1.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Terreni\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 90.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.1.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Fabbricati\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 100.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.1.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Strade e autostrade\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 110.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.1.4\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Strade ferrate\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 120.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.1.5\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Opere destinate alla difesa nazionale\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 130.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.1.6\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Porti e aerodromi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 140.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.1.7\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Acquedotti e infrastrutture idrauliche\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 150.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.1.8\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Beni immobili culturali\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 160.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.1.9\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Beni mobili culturali\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 170.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.1.10\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Cimiteri\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 180.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.1.11\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Mercati\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 190.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.1.12\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 200.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.2\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Beni patrimoniali indisponibili [2]\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 210.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.2.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Terreni\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 220.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.2.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Mobili e arredi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 230.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.2.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Fabbricati destinati a sede di pubblici uffici\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 240.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.2.4\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Impianti e macchinari\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 250.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.2.5\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Attrezzature\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 260.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.2.6\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Mezzi di trasporto\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 270.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.2.7\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Macchine per ufficio e hardware\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 280.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.2.8\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Miniere, cave e torbiere\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 290.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.2.9\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Caserme\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 300.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.2.10\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Armamenti, aeromobili militari e navi da guerra\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 310.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.2.11\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Beni culturali\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 320.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.2.12\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 330.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.3\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Beni patrimoniali disponibili [1]\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 340.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.3.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Investimenti immobiliari\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 350.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.3.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Terreni\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 360.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.3.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Fabbricati\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 370.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.3.4\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Impianti e macchinari\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 380.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.3.5\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Attrezzature\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 390.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.3.6\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Mezzi di trasporto\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 400.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.3.7\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Macchine per ufficio e hardware\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 410.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.3.8\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Mobili e arredi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 420.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.3.9\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Attività biologiche\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 430.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.3.10\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 440.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B.4\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Immobilizzazioni in corso e acconti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 450.0\n                },\n                {\n                    \"codice\": \"SP_ATT-B-TOT\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Totale Immobilizzazioni materiali\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 460.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Immobilizzazioni Finanziarie\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_ATT-C.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Partecipazioni in società controllate\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 470.0\n                },\n                {\n                    \"codice\": \"SP_ATT-C.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Partecipazioni in società collegate\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 480.0\n                },\n                {\n                    \"codice\": \"SP_ATT-C.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Partecipazioni in altri organismi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 490.0\n                },\n                {\n                    \"codice\": \"SP_ATT-C.4\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri titoli\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 500.0\n                },\n                {\n                    \"codice\": \"SP_ATT-C.5\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Crediti di natura tributaria\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 510.0\n                },\n                {\n                    \"codice\": \"SP_ATT-C.6\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Crediti per trasferimenti [3]\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 520.0\n                },\n                {\n                    \"codice\": \"SP_ATT-C.7\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Crediti verso clienti e utenti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 530.0\n                },\n                {\n                    \"codice\": \"SP_ATT-C.8\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri crediti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 540.0\n                },\n                {\n                    \"codice\": \"SP_ATT-C-TOT\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Totale Immobilizzazioni finanziarie\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 550.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Risconti\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_ATT-D.1\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Risconti attivi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 560.0\n                },\n                {\n                    \"codice\": \"SP_ATT-D-TOT\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Totale Risconti\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 570.0\n                },\n                {\n                    \"codice\": \"sr_SP_AttivitaNonCorrentiTotale\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"TOTALE ATTIVITA' NON CORRENTI\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 1650.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"ATTIVITA' CORRENTI\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": true,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Rimanenze e lavori in corso su ordinazione\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_ATT-E.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Materie prime, sussidiarie e materiali di consumo\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 580.0\n                },\n                {\n                    \"codice\": \"SP_ATT-E.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Semilavorati e prodotti in corso di lavorazione\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 590.0\n                },\n                {\n                    \"codice\": \"SP_ATT-E.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Prodotti finiti e merci\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 600.0\n                },\n                {\n                    \"codice\": \"SP_ATT-E.4\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Attività biologiche\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 610.0\n                },\n                {\n                    \"codice\": \"SP_ATT-E.5\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Lavori in corso su ordinazione\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 620.0\n                },\n                {\n                    \"codice\": \"SP_ATT-E.6\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Acconti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 630.0\n                },\n                {\n                    \"codice\": \"SP_ATT-E-TOT\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Totale Rimanenze e lavori in corso su ordinazione\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 640.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altre attività destinate alla vendita\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_ATT-F.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Attività immateriali\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 650.0\n                },\n                {\n                    \"codice\": \"SP_ATT-F.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Attività materiali\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 660.0\n                },\n                {\n                    \"codice\": \"SP_ATT-F.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Attività finanziarie\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 670.0\n                },\n                {\n                    \"codice\": \"SP_ATT-F-TOT\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Totale Altre attività destinate alla vendita\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 680.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Crediti\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_ATT-G.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Crediti di natura tributaria\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 690.0\n                },\n                {\n                    \"codice\": \"SP_ATT-G.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Crediti per trasferimenti [3]\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 700.0\n                },\n                {\n                    \"codice\": \"SP_ATT-G.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso clienti e utenti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 710.0\n                },\n                {\n                    \"codice\": \"SP_ATT-G.4\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri crediti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 720.0\n                },\n                {\n                    \"codice\": \"SP_ATT-G-TOT\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Totale Crediti\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 730.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Ratei e risconti\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_ATT-H.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Ratei attivi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 740.0\n                },\n                {\n                    \"codice\": \"SP_ATT-H.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Risconti attivi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 750.0\n                },\n                {\n                    \"codice\": \"SP_ATT-H-TOT\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Totale Ratei e risconti\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 760.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Disponibilità liquide\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_ATT-I.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Conto di tesoreria\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 770.0\n                },\n                {\n                    \"codice\": \"SP_ATT-I.1.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"presso Istituto cassiere (tesoriere)\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 780.0\n                },\n                {\n                    \"codice\": \"SP_ATT-I.1.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"presso Banca d'Italia\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 790.0\n                },\n                {\n                    \"codice\": \"SP_ATT-I.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri depositi bancari e postali\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 800.0\n                },\n                {\n                    \"codice\": \"SP_ATT-I.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Denaro e valori in cassa\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 810.0\n                },\n                {\n                    \"codice\": \"SP_ATT-I.4\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri conti presso la tesoreria statale intestati all’amministrazione\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 820.0\n                },\n                {\n                    \"codice\": \"SP_ATT-I-TOT\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Totale Disponibilità liquide\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 830.0\n                },\n                {\n                    \"codice\": \"SP_AttivitaCorrentiTotale\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"TOTALE ATTIVITA' CORRENTI\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 840.0\n                },\n                {\n                    \"codice\": \"SP_AttivoTotale\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"TOTALE ATTIVO (ATTIVITA' NON CORRENTI + ATTIVITA' CORRENTI)\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 850.0\n                }\n            ]\n        },\n        {\n            \"titolo\": \"PASSIVO\",\n            \"header\": {\n                \"codice\": \"Codice\",\n                \"largeCodice\": true,\n                \"boldCodice\": true,\n                \"descrizione\": \"Stato Patrimoniale\",\n                \"largeDescrizione\": true,\n                \"boldDescrizione\": true,\n                \"depthDescrizione\": 0,\n                \"descriptionOnly\": false,\n                \"valore\": 2025\n            },\n            \"rows\": [\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"PATRIMONIO NETTO\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": true,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_PASS-A\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Fondo di dotazione\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 860.0\n                },\n                {\n                    \"codice\": \"SP_PASS-B\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Riserve\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 870.0\n                },\n                {\n                    \"codice\": \"SP_PASS-B.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"disponibili\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 880.0\n                },\n                {\n                    \"codice\": \"SP_PASS-B.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"indisponibili\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 890.0\n                },\n                {\n                    \"codice\": \"SP_PASS-B.2.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Per beni demaniali e patrimoniali indisponibili non soggetti ad ammortamento\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 900.0\n                },\n                {\n                    \"codice\": \"SP_PASS-B.2.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Riserve negative\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 910.0\n                },\n                {\n                    \"codice\": \"SP_PASS-B.2.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altre riserve indisponibili\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 920.0\n                },\n                {\n                    \"codice\": \"SP_PASS-C\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Risultati economici degli esercizi precedenti\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 930.0\n                },\n                {\n                    \"codice\": \"SP_PASS-D\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Risultato economico dell'esercizio\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 940.0\n                },\n                {\n                    \"codice\": \"SP_PatrimonioNettoTotale\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"TOTALE PATRIMONIO NETTO\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 950.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"PASSIVITA' NON CORRENTI\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": true,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Debiti\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_PASS-E.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Titoli del debito pubblico\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 960.0\n                },\n                {\n                    \"codice\": \"SP_PASS-E.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso banche\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 970.0\n                },\n                {\n                    \"codice\": \"SP_PASS-E.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso Tesoreria dello Stato\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 980.0\n                },\n                {\n                    \"codice\": \"SP_PASS-E.4\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso altre amministrazioni pubbliche [4]\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 990.0\n                },\n                {\n                    \"codice\": \"SP_PASS-E.5\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso altri finanziatori\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 1000.0\n                },\n                {\n                    \"codice\": \"SP_PASS-E.6\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso concessionari di servizi [5]\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 1100.0\n                },\n                {\n                    \"codice\": \"SP_PASS-E.7\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso fornitori\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 1200.0\n                },\n                {\n                    \"codice\": \"SP_PASS-E.8\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Acconti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 1300.0\n                },\n                {\n                    \"codice\": \"SP_PASS-E.9\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso altri\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 1400.0\n                },\n                {\n                    \"codice\": \"SP_PASS-E-TOT\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Totale Debiti\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 1500.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Fondi\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_PASS-F.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Per trattamento di quiescenza e trattamento di fine rapporto\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 1600.0\n                },\n                {\n                    \"codice\": \"SP_PASS-F.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Per imposte\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 1700.0\n                },\n                {\n                    \"codice\": \"SP_PASS-F.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri fondi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 1800.0\n                },\n                {\n                    \"codice\": \"SP_PASS-F-TOT\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Totale Fondi\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 1900.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Risconti e altre passività\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_PASS-G.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Risconti passivi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 2000.0\n                },\n                {\n                    \"codice\": \"SP_PASS-G.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Diritti da concessioni di servizi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 2100.0\n                },\n                {\n                    \"codice\": \"SP_PASS-G-TOT\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Totale Risconti e altre passività\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 2200.0\n                },\n                {\n                    \"codice\": \"SP_PassivitaNonCorrentiTotale\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"TOTALE PASSIVITA' NON CORRENTI\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 2300.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"PASSIVITA' CORRENTI\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": true,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Debiti\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_PASS-H.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Titoli del debito pubblico\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 2400.0\n                },\n                {\n                    \"codice\": \"SP_PASS-H.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso banche e tesoriere\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 2500.0\n                },\n                {\n                    \"codice\": \"SP_PASS-H.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso Tesoreria dello Stato\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 2600.0\n                },\n                {\n                    \"codice\": \"SP_PASS-H.4\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso altre amministrazioni pubbliche [4]\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 2700.0\n                },\n                {\n                    \"codice\": \"SP_PASS-H.5\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso altri finanziatori\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 2800.0\n                },\n                {\n                    \"codice\": \"SP_PASS-H.6\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso concessionari di servizi [5]\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 2900.0\n                },\n                {\n                    \"codice\": \"SP_PASS-H.7\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso fornitori\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 3000.0\n                },\n                {\n                    \"codice\": \"SP_PASS-H.8\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Acconti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 3100.0\n                },\n                {\n                    \"codice\": \"SP_PASS-H.9\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso altri\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 3200.0\n                },\n                {\n                    \"codice\": \"SP_PASS-H-TOT\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Totale Debiti\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 3300.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Fondi\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_PASS-I.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Per trattamento di quiescenza e trattamento di fine rapporto\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 3400.0\n                },\n                {\n                    \"codice\": \"SP_PASS-I.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Per imposte\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 3500.0\n                },\n                {\n                    \"codice\": \"SP_PASS-I.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri fondi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 3600.0\n                },\n                {\n                    \"codice\": \"SP_PASS-I-TOT\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Totale Fondi\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 3700.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Ratei, risconti passivi e altre passività\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SP_PASS-L.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Ratei passivi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 3800.0\n                },\n                {\n                    \"codice\": \"SP_PASS-L.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Risconti passivi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 3900.0\n                },\n                {\n                    \"codice\": \"SP_PASS-L.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Diritti da Concessioni di servizi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 4000.0\n                },\n                {\n                    \"codice\": \"SP_PASS-L-TOT\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Totale Ratei, risconti passivi e altre passività\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 4100.0\n                },\n                {\n                    \"codice\": \"SP_PassivitaCorrentiTotale\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"TOTALE PASSIVITA' CORRENTI\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 4200.0\n                },\n                {\n                    \"codice\": \"SP_PassivoTotale\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"TOTALE PASSIVO (PN+PASSIVITA' NON CORRENTI + PASSIVITA' CORRENTI)\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 4300.0\n                }\n            ]\n        }\n    ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Stato Patrimoniale",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "0d2187bc-6285-4cf8-888e-2c5ca5c8cf84",
+          "body": "{\n    \"id\": 3,\n    \"descrizione\": \"Stato Patrimoniale - Schema aggiuntivo con dettagli relativi alle note apposte sullo schema di SP: [1],[2],[3],[4],[5]\",\n    \"schemi\": [\n        {\n            \"titolo\": \"A T T I V O\",\n            \"header\": {\n                \"codice\": \"Codice\",\n                \"largeCodice\": true,\n                \"boldCodice\": true,\n                \"descrizione\": \"Stato Patrimoniale - Schema aggiuntivo con dettagli relativi alle note apposte sullo schema di SP: [1],[2],[3],[4],[5]\",\n                \"largeDescrizione\": true,\n                \"boldDescrizione\": true,\n                \"depthDescrizione\": 0,\n                \"descriptionOnly\": false,\n                \"valore\": 2025\n            },\n            \"rows\": [\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"ATTIVITA' NON CORRENTI - Dettagli importi relativi alle note [1] e [2]\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": true,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Immobilizzazioni immateriali e avviamento [1]  - DETTAGLIO BENI IN CONCESSIONE\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"sr_SPD_ATT-A.1_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Diritti di brevetto e utilizzazione opere dell'ingegno\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 10.0\n                },\n                {\n                    \"codice\": \"sr_SPD_ATT-A.2_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Concessioni, licenze, marchi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 20.0\n                },\n                {\n                    \"codice\": \"sr_SPD_ATT-A.3_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri diritti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 30.0\n                },\n                {\n                    \"codice\": \"sr_SPD_ATT-A.4_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Avviamento\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 40.0\n                },\n                {\n                    \"codice\": \"sr_SPD_ATT-A.5_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Immobilizzazioni in corso e acconti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 50.0\n                },\n                {\n                    \"codice\": \"sr_SPD_ATT-A.6_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altre\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 60.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Immobilizzazioni immateriali e avviamento [2]  - DETTAGLIO BENI ACQUISITI IN LEASING FINANZIARIO\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"sr_SPD_ATT-A.1_leas\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Diritti di brevetto e utilizzazione opere dell'ingegno\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 70.0\n                },\n                {\n                    \"codice\": \"sr_SPD_ATT-A.2_leas\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Concessioni, licenze, marchi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 80.0\n                },\n                {\n                    \"codice\": \"sr_SPD_ATT-A.3_leas\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri diritti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 90.0\n                },\n                {\n                    \"codice\": \"sr_SPD_ATT-A.4_leas\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Avviamento\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 100.0\n                },\n                {\n                    \"codice\": \"sr_SPD_ATT-A.5_leas\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Immobilizzazioni in corso e acconti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 110.0\n                },\n                {\n                    \"codice\": \"sr_SPD_ATT-A.6_leas\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altre\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 120.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Immobilizzazioni materiali\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Beni demaniali (1) - DETTAGLIO BENI IN CONCESSIONE\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.1.1_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Terreni\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 130.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.1.2_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Fabbricati\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 140.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.1.3_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Strade e autostrade\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 150.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.1.4_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Strade ferrate\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 160.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.1.5_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Opere destinate alla difesa nazionale\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 170.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.1.6_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Porti e aerodromi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 180.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.1.7_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Acquedotti e infrastrutture idrauliche\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 190.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.1.8_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Beni immobili culturali\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 200.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.1.9_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Beni mobili culturali\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 210.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.1.10_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Cimiteri\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 220.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.1.11_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Mercati\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 230.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.1.12_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 240.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Beni patrimoniali indisponibili [1] - DETTAGLIO BENI IN CONCESSIONE\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.2.1_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Terreni\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 250.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.2.2_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Mobili e arredi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 260.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.2.3_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Fabbricati destinati a sede di pubblici uffici\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 270.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.2.4_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Impianti e macchinari\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 280.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.2.5_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Attrezzature\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 290.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.2.6_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Mezzi di trasporto\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 300.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.2.7_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Macchine per ufficio e hardware\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 310.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.2.8_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Miniere, cave e torbiere\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 320.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.2.9_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Caserme\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 330.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.2.10_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Armamenti, aeromobili militari e navi da guerra\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 340.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.2.11_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Beni culturali\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 350.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.2.12_conc\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 360.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Beni patrimoniali disponibili [2] - DETTAGLIO BENI ACQUISITI IN LEASING FINANZIARIO\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.3.1_leas\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Investimenti immobiliari\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 370.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.3.2_leas\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Terreni\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 380.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.3.3_leas\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Fabbricati\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 390.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.3.4_leas\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Impianti e macchinari\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 400.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.3.5_leas\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Attrezzature\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 410.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.3.6_leas\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Mezzi di trasporto\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 420.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.3.7_leas\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Macchine per ufficio e hardware\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 430.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.3.8_leas\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Mobili e arredi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 440.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.3.9_leas\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Attività biologiche\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 450.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-B.3.10_leas\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 460.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"ATTIVITA' NON CORRENTI - Dettagli importi relativi alla nota [3]\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": true,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Immobilizzazioni Finanziarie\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SPD_ATT-C.6\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Crediti (non correnti) per trasferimenti [3] - separata indicazione dei crediti per trasferimenti ottenuti e non riscossi e dei crediti per trasferimenti concessi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 470.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-C.6.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Crediti (non correnti) per trasferimenti ottenuti e non riscossi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 480.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-C.6.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Crediti (non correnti) per trasferimenti condizionati concessi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 490.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"ATTIVITA' CORRENTI - Dettagli importi relativi alla nota [3]\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": true,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Crediti\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SPD_ATT-G.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Crediti (correnti) per trasferimenti [3] - separata indicazione dei crediti per trasferimenti ottenuti e non riscossi e dei crediti per trasferimenti concessi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 500.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-G.2.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Crediti (correnti) per trasferimenti ottenuti e non riscossi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 510.0\n                },\n                {\n                    \"codice\": \"SPD_ATT-G.2.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Crediti (correnti) per trasferimenti condizionati concessi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 520.0\n                }\n            ]\n        },\n        {\n            \"titolo\": \"PASSIVO\",\n            \"header\": {\n                \"codice\": \"Codice\",\n                \"largeCodice\": true,\n                \"boldCodice\": true,\n                \"descrizione\": \"Stato Patrimoniale - Schema aggiuntivo con dettagli relativi alle note apposte sullo schema di SP: [1],[2],[3],[4],[5]\",\n                \"largeDescrizione\": true,\n                \"boldDescrizione\": true,\n                \"depthDescrizione\": 0,\n                \"descriptionOnly\": false,\n                \"valore\": 2025\n            },\n            \"rows\": [\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"PASSIVITA' NON CORRENTI - Dettagli importi relativi alle note [4] e [5]\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": true,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Debiti\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SPD_PASS-E.4\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso altre amministrazioni pubbliche [4] - separata indicazione dei debiti per trasferimenti concessi e non erogati e dei debiti per trasferimenti ricevuti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 530.0\n                },\n                {\n                    \"codice\": \"SPD_PASS-E.4.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Debiti (non correnti) verso amministrazioni pubbliche per trasferimenti ottenuti e non riscossi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 540.0\n                },\n                {\n                    \"codice\": \"SPD_PASS-E.4.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Debiti (non correnti) verso amministrazioni pubbliche per trasferimenti condizionati concessi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 550.0\n                },\n                {\n                    \"codice\": \"SPD_PASS-E.4.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri debiti (non correnti) verso amministrazioni pubbliche\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 560.0\n                },\n                {\n                    \"codice\": \"SPD_PASS-E.6\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso concessionari di servizi [5] - separata indicazione dei debiti di cui al modello della passività finanziaria\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 570.0\n                },\n                {\n                    \"codice\": \"SPD_PASS-E.6.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Debiti (non correnti) verso concessionari di servizi (Modello della passività finanziaria)\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 580.0\n                },\n                {\n                    \"codice\": \"SPD_PASS-E.6.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Debiti (non correnti) per conferimento di un diritto relativo a servizi in concessione (Modello del conferimento di un diritto al concessionario)\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 590.0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"PASSIVITA' CORRENTI - Dettagli importi relativi alle note [4] e [5]\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": true,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"\",\n                    \"largeCodice\": true,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Debiti\",\n                    \"largeDescrizione\": true,\n                    \"boldDescrizione\": true,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 0\n                },\n                {\n                    \"codice\": \"SPD_PASS-H.4\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso altre amministrazioni pubbliche [4] - separata indicazione dei debiti per trasferimenti concessi e non erogati e dei debiti per trasferimenti ricevuti\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 600.0\n                },\n                {\n                    \"codice\": \"SPD_PASS-H.4.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Debiti (correnti) verso amministrazioni pubbliche per trasferimenti ottenuti e non riscossi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 610.0\n                },\n                {\n                    \"codice\": \"SPD_PASS-H.4.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Debiti (correnti) verso amministrazioni pubbliche per trasferimenti condizionati concessi\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 620.0\n                },\n                {\n                    \"codice\": \"SPD_PASS-H.4.3\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Altri debiti (correnti) verso amministrazioni pubbliche\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 630.0\n                },\n                {\n                    \"codice\": \"SPD_PASS-H.6\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Verso concessionari di servizi [5] - separata indicazione dei debiti di cui al modello della passività finanziaria\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 0,\n                    \"descriptionOnly\": false,\n                    \"valore\": 640.0\n                },\n                {\n                    \"codice\": \"SPD_PASS-H.6.1\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Debiti (correnti) verso concessionari di servizi (Modello della passività finanziaria)\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 650.0\n                },\n                {\n                    \"codice\": \"SPD_PASS-H.6.2\",\n                    \"largeCodice\": false,\n                    \"boldCodice\": false,\n                    \"descrizione\": \"Debiti (correnti) per conferimento di un diritto relativo a servizi in concessione (Modello del conferimento di un diritto al concessionario)\",\n                    \"largeDescrizione\": false,\n                    \"boldDescrizione\": false,\n                    \"depthDescrizione\": 2,\n                    \"descriptionOnly\": false,\n                    \"valore\": 660.0\n                }\n            ]\n        }\n    ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Stato Patrimoniale Dettaglio",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "9e0f1a2b-3c4d-5e6f-7a8b-9c0d1e2f3a4b",
+          "body": "{\n  \"error\": {\n    \"detail\": \"Prospetto non trovato\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Not Found",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "0f1a2b3c-4d5e-6f7a-8b9c-0d1e2f3a4b5c",
+      "type": "http",
+      "documentation": "Export prospetto contabile to XLSX or PDF",
+      "method": "get",
+      "endpoint": "prospettoContabile/export",
+      "responses": [
+        {
+          "uuid": "323d060a-038b-4497-b5a1-6cd19ccb8b26",
+          "body": "{\n  \"fileName\": \"prospetto_contabile_{{queryParam 'id' 'unknown'}}.{{lower (queryParam 'format' 'xlsx')}}\",\n  \"bytes\": \"{{faker 'string.alphanumeric' 100}}\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "ef22a7ae-def7-46fb-a394-57764522e522",
+          "body": "{\n  \"error\": {\n    \"detail\": \"Prospetto non trovato o formato non valido\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Bad Request",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "b4426ac8-7668-44a6-a5bd-60b2c5c77ef3",
+      "type": "http",
+      "documentation": "Stato scansione antivirus",
+      "method": "get",
+      "endpoint": "statoScansione",
+      "responses": [
+        {
+          "uuid": "1d3acdc5-c48a-4e93-8f62-6fe49e1115d1",
+          "body": "{\n  \"progress\": 0.5,\n  \"verdetto\": \"\",\n  \"fileName\": \"test_upload.zip\",\n  \"format\": \"XLSX\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "In corso",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "4e3961cb-b799-4d0d-b296-7fe3cf33f34d",
+          "body": "{\n  \"progress\": 1,\n  \"verdetto\": \"ANTIVIRUS_OK\",\n  \"fileName\": \"test_upload.zip\",\n  \"format\": \"XLSX\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Scansione OK",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "e5f6a7b8-c9d0-1234-efab-345678901234",
+          "body": "{\n  \"progress\": 1,\n  \"verdetto\": \"SCANSIONE_FALLITA\",\n  \"fileName\": \"test_upload.zip\",\n  \"format\": \"XLSX\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Scansione fallita",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "5c6d7e8f-9a0b-4c1d-8e2f-3a4b5c6d7e8f",
+      "type": "http",
+      "documentation": "Check existing upload for current user and optional ente",
+      "method": "get",
+      "endpoint": "checkEsistenzaUpload",
+      "responses": [
+        {
+          "uuid": "6d7e8f9a-0b1c-4d2e-9f3a-4b5c6d7e8f9a",
+          "body": "{\n  \"exists\": true,\n  \"uploadId\": 12345\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Exists true",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "7e8f9a0b-1c2d-4e3f-8a4b-5c6d7e8f9a0b",
+          "body": "{\n  \"exists\": false\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Exists false",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "8f9a0b1c-2d3e-4f4a-9b5c-6d7e8f9a0b1c",
+          "body": "{\n  \"error\": {\n    \"detail\": \"Errore interno del server\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Internal Server Error",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "6a1b2c3d-4e5f-6789-abcd-ef0123456789",
+      "type": "http",
+      "documentation": "Ricerca enti per denominazione e tipologia opzionale",
+      "method": "post",
+      "endpoint": "ricercaDenonimazioneEnte",
+      "responses": [
+        {
+          "uuid": "7b2c3d4e-5f60-789a-bcde-f0123456789a",
+          "body": "[\n  {\n    \"id\": 1,\n    \"descrizione\": \"Comune di Caserta\",\n    \"codiceBDAP\": \"123456789012345678\",\n    \"tipologiaEnteID\": \"1\"\n  },\n  {\n    \"id\": 2,\n    \"descrizione\": \"Comune di Napoli\",\n    \"codiceBDAP\": \"123456789012345678\",\n    \"tipologiaEnteID\": \"1\"\n  },\n  {\n    \"id\": 3,\n    \"descrizione\": \"Comune di Roma\",\n    \"codiceBDAP\": \"123456789012345678\",\n    \"tipologiaEnteID\": \"1\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "d8205a7c-f519-426b-8ad6-eb383035a987"
+    },
+    {
+      "type": "route",
+      "uuid": "0f6c5877-b13e-4ae7-87c4-46e6b72bce72"
+    },
+    {
+      "type": "route",
+      "uuid": "0abf8e28-42d9-4a1d-9aac-28f5a468cd46"
+    },
+    {
+      "type": "route",
+      "uuid": "74e3901f-bc59-46ba-aa46-971d6a9af53b"
+    },
+    {
+      "type": "route",
+      "uuid": "3f0ce0f7-2fe1-44f7-b986-8c59f871f2e8"
+    },
+    {
+      "type": "route",
+      "uuid": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d"
+    },
+    {
+      "type": "route",
+      "uuid": "4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a"
+    },
+    {
+      "type": "route",
+      "uuid": "7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d"
+    },
+    {
+      "type": "route",
+      "uuid": "9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f"
+    },
+    {
+      "type": "route",
+      "uuid": "2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c"
+    },
+    {
+      "type": "route",
+      "uuid": "2c9f4a31-c0df-4b84-9f17-5f3f7fcbe2d5"
+    },
+    {
+      "type": "route",
+      "uuid": "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f"
+    },
+    {
+      "type": "route",
+      "uuid": "8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c"
+    },
+    {
+      "type": "route",
+      "uuid": "1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f"
+    },
+    {
+      "type": "route",
+      "uuid": "4f5a6b7c-8d9e-0f1a-2b3c-4d5e6f7a8b9c"
+    },
+    {
+      "type": "route",
+      "uuid": "7c8d9e0f-1a2b-3c4d-5e6f-7a8b9c0d1e2f"
+    },
+    {
+      "type": "route",
+      "uuid": "0f1a2b3c-4d5e-6f7a-8b9c-0d1e2f3a4b5c"
+    },
+    {
+      "type": "route",
+      "uuid": "ffe59646-fc4a-49eb-9057-c6e447b8785b"
+    },
+    {
+      "type": "route",
+      "uuid": "b4426ac8-7668-44a6-a5bd-60b2c5c77ef3"
+    },
+    {
+      "type": "route",
+      "uuid": "5c6d7e8f-9a0b-4c1d-8e2f-3a4b5c6d7e8f"
+    },
+    {
+      "type": "route",
+      "uuid": "6a1b2c3d-4e5f-6789-abcd-ef0123456789"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}
